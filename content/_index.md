@@ -1,11 +1,12 @@
 ---
-
+cascade:
+  type: blog
 toc: false
 ---
 ![Banner](/images/stars-banner.jpeg)
-Welcome to my personal site. Here you'll find a collection of my thoughts in the blog, and some details about me.
-
-{{< cards >}}
-  {{< card link="blog" title="Blog" icon="book-open" >}}
-  {{< card link="about" title="About" icon="user" >}}
-{{< /cards >}}
+<div style="text-align: center; margin-top: 1em;">
+{{< hextra/hero-badge link="index.xml" >}}
+  <span>RSS Feed</span>
+  {{< icon name="rss" attributes="height=14" >}}
+{{< /hextra/hero-badge >}}
+</div>

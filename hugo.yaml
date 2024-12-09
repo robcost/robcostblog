@@ -18,31 +18,22 @@ markup:
 
 menu:
   main:
-    - name: Blog
-      pageRef: /blog
-      weight: 1
-    - name: About
-      pageRef: /about
-      weight: 2
-    - name: Contact ↗
-      url: "https://www.linkedin.com/in/robcost/"
-      weight: 3
     - name: Search
-      weight: 4
+      weight: 1
       params:
         type: search
     - name: GitHub
-      weight: 5
+      weight: 2
       url: "https://github.com/robcost"
       params:
         icon: github
     - name: Twitter
-      weight: 6
+      weight: 3
       url: "https://twitter.com/robcost"
       params:
         icon: x-twitter
     - name: LinkedIn
-      weight: 7
+      weight: 4
       url: "https://www.linkedin.com/in/robcost/"
       params:
         icon: linkedin
