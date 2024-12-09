@@ -1,17 +1,11 @@
 ---
-title: My Site
+
 toc: false
 ---
-
-This is the landing page.
-
-## Explore
+![Banner](/images/stars-banner.jpeg)
+Welcome to my personal site. Here you'll find a collection of my thoughts in the blog, and some details about me.
 
 {{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" >}}
+  {{< card link="blog" title="Blog" icon="book-open" >}}
   {{< card link="about" title="About" icon="user" >}}
 {{< /cards >}}
-
-## Documentation
-
-For more information, visit [Hextra](https://imfing.github.io/hextra).
