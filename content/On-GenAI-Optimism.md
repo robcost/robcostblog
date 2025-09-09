@@ -1,6 +1,6 @@
 ---
 title: On GenAI Optimism
-date: 2025-09-10
+date: 2025-09-09
 authors:
   - name: robcost
     link: https://github.com/robcost
