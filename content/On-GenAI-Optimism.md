@@ -62,7 +62,7 @@ Huang envisions a complete economic transformation: **"Over the next 5 years, we
 
 Altman has even made specific predictions about disruption: In an interview, he stated that AGI will mean **"95% of what marketers use agencies, strategists, and creative professionals for today will easily, nearly instantly and at almost no cost be handled by the AI."** ([Source](https://www.marketingaiinstitute.com/blog/sam-altman-ai-agi-marketing))
 
-## Section 4: Why These Perspectives Diverge: Epistemological & Framing Differences
+## Why These Perspectives Diverge: Epistemological & Framing Differences
 
 So why do smart people look at the same technology and see completely different things? It comes down to some deep differences in how we understand and frame technologies.
 
