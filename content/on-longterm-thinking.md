@@ -14,7 +14,7 @@ excludeSearch: false
 ---
 There's a concept in evolutionary biology called the "adjacent possible", it's about exploring what's reachable from where you are now, the space of possibilities that opens up with each step forward. [Stuart Kauffman](https://en.wikipedia.org/wiki/Stuart_Kauffman) used it to describe how [biological systems evolve](https://pmc.ncbi.nlm.nih.gov/articles/PMC5464662/), but I've come to see it as the perfect metaphor for navigating careers in our accelerating world. Hence why I named my company Adjacent Possible Tech.
 
-The irony of writing about long-term thinking in 2024 is that the very concept feels like it's undergoing time dilation. We used to plan infrastructure projects with 5+ year burn-down periods. Systems were built with 10+ year lifecycles. Now? Even outside the AI frenzy, the tech industry moves so fast that what we used to call "long-term" is barely medium-term. It's like we're living in a temporal compression chamber where the future arrives before we've finished planning for it.
+The irony of writing about long-term thinking in 2025 is that the very concept feels like it's undergoing time dilation. We used to plan infrastructure projects with 5+ year burn-down periods. Systems were built with 10+ year lifecycles. Now? Even outside the AI frenzy, the tech industry moves so fast that what we used to call "long-term" is barely medium-term. It's like we're living in a temporal compression chamber where the future arrives before we've finished planning for it.
 
 ## The View from the Bleeding Edge
 
