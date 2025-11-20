@@ -46,7 +46,7 @@ That's what I mean by legacy. Not what you leave behind in the organisation, but
 
 Geneva and Switzerland are intertwined with my AWS exit in a way that makes them hard to separate. Leaving the company meant leaving the city, leaving the country, moving the family back to Australia. That time in my career and that time in my life are wound together so tightly that thinking about one inevitably pulls up the other.
 
-We spent nearly four years there. We traveled Europe extensively as a family, made lasting memories, expanded our worldview in ways that wouldn't have happened if we'd stayed in Australia. My kids got to see a different way of living. My wife and I got to experience what it meant to work and build a life in a completely different context.
+We spent nearly three years there. We traveled Europe extensively as a family, made lasting memories, expanded our worldview in ways that wouldn't have happened if we'd stayed in Australia. My kids got to see a different way of living. My wife and I got to experience what it meant to work and build a life in a completely different context.
 
 When I think about what I left behind in Geneva now, it's not with regret. It's with gratitude. We always knew we were coming back to Australia eventually, which meant we never had that anxious feeling of "we'll never experience this again." We were living on borrowed time, and we knew it, which somehow made the whole experience more vivid.
 
