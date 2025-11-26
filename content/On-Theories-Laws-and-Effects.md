@@ -79,7 +79,7 @@ People rise to their level of incompetence. That brilliant engineer who got prom
 
 "Excessive complexity is nature's punishment for organisations that are unable to make decisions." I've seen codebases that look like archaeological sites, with layers upon layers of different architectural decisions because no one could commit to a direction. Every "let's support both approaches for now" decision adds another sedimentary layer to your technical debt. I’ve done it, “lets create an abstraction so we can have multiple providers underneath and don’t have to commit now” always seems like such a logical thing to do, but it hurts later.
 
-[https://en.wikipedia.org/wiki/Peter_principle](https://architectelevator.com/gregors-law/)
+[https://architectelevator.com/gregors-law/](https://architectelevator.com/gregors-law/)
 
 **Hofstadter's Law**
 
