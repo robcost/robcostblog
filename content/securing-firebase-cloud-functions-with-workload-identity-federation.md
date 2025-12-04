@@ -11,9 +11,9 @@ tags:
   - Cloud Functions
 excludeSearch: false
 ---
-If you're building a mobile app with Firebase and want to protect Cloud Functions that call paid APIs—AI services, databases, or external integrations—you need to understand a critical security gap: **Firebase Auth validation happens inside your function, after it's already running and billing you.**
+If you're building a mobile app with Firebase and want to protect Cloud Functions that call paid APIs - AI services, databases, or external integrations - you need to understand a critical security gap: **Firebase Auth validation happens inside your function, after it's already running and billing you.**
 
-This means every request to your function is billable, even if the token is invalid. Malicious actors can spam your endpoints with garbage tokens and drain your budget. Your Firebase Auth validation will reject them, sure—but not before GCP bills you for each function invocation.
+This means every request to your function is billable, even if the token is invalid. Malicious actors can spam your endpoints with garbage tokens and drain your budget. Your Firebase Auth validation will reject them, sure - but not before GCP bills you for each function invocation.
 
 The standard advice? "Just use Firebase Auth and App Check." But here's the uncomfortable truth:
 
@@ -23,7 +23,7 @@ The standard advice? "Just use Firebase Auth and App Check." But here's the unco
 | App Check | Inside function (after invocation) | **You pay for invalid requests** |
 | GCP IAM | Before function invocation | **No billing for rejected requests** |
 
-Enter **Workload Identity Federation (WIF)**—Google Cloud's mechanism for letting external identities assume GCP service accounts. Combined with what I call the **dual-token pattern**, you get IAM protection *in front of* your functions, while preserving Firebase's seamless mobile auth experience.
+Enter **Workload Identity Federation (WIF)** - Google Cloud's mechanism for letting external identities assume GCP service accounts. Combined with what I call the **dual-token pattern**, you get IAM protection *in front of* your functions, while preserving Firebase's seamless mobile auth experience.
 
 This isn't a theoretical exercise. I spent weeks implementing this for a production application with 26+ Cloud Functions across three global regions. Here's everything I learned, including the billing attack vector that motivated it all.
 
@@ -31,7 +31,7 @@ This isn't a theoretical exercise. I spent weeks implementing this for a product
 
 ## The Problem: Billing Attacks on Firebase Functions
 
-Firebase Authentication is phenomenal for mobile apps. Users sign in with Google, Apple, or email—and you get a JWT token you can validate server-side. The problem? **Token validation happens after your function starts running.**
+Firebase Authentication is phenomenal for mobile apps. Users sign in with Google, Apple, or email - and you get a JWT token you can validate server-side. The problem? **Token validation happens after your function starts running.**
 
 ### The Billing Attack Vector
 
@@ -59,12 +59,12 @@ export const generateAIToken = onCall(async (request) => {
 ```
 
 Here's the attack scenario:
-1. Attacker discovers your function endpoint (easy—it's in your app bundle)
+1. Attacker discovers your function endpoint (easy - it's in your app bundle)
 2. Attacker writes a script to spam requests with invalid/no tokens
 3. Each request **invokes your function** (billable event)
 4. Your validation rejects them... but you still pay
 
-**At $0.40 per million invocations plus compute time, an attacker running 1,000 requests/second could cost you $34/day in invocations alone—without making a single legitimate request.**
+**At $0.40 per million invocations plus compute time, an attacker running 1,000 requests/second could cost you $34/day in invocations alone - without making a single legitimate request.**
 
 ### Why App Check Doesn't Solve This
 
@@ -131,7 +131,7 @@ Here's the flow:
 4. **Function generates** an OIDC ID token for the target service
 5. **Mobile app receives** both tokens: GCP (for IAM) + Firebase (for user identity)
 
-That last point is crucial—it's the **dual-token pattern**. You need both tokens because IAM authenticates the request, but the target function still needs to know *who* is making the request.
+That last point is crucial - it's the **dual-token pattern**. You need both tokens because IAM authenticates the request, but the target function still needs to know *who* is making the request.
 
 ---
 
@@ -171,7 +171,7 @@ const provider = new gcp.iam.WorkloadIdentityPoolProvider('firebase-provider', {
 });
 ```
 
-The `issuerUri` is key—Firebase exposes OIDC-compatible discovery at `https://securetoken.google.com/{PROJECT_ID}`. This tells GCP how to validate Firebase tokens.
+The `issuerUri` is key - Firebase exposes OIDC-compatible discovery at `https://securetoken.google.com/{PROJECT_ID}`. This tells GCP how to validate Firebase tokens.
 
 ### Creating the Service Account
 
@@ -199,7 +199,7 @@ new gcp.serviceaccount.IAMBinding('mobile-app-wif-binding', {
 
 ## Step 2: The Token Exchange Function
 
-This is the bootstrap function—it's the only public function in the system. It validates Firebase Auth (via `onCall`), then performs the WIF exchange:
+This is the bootstrap function - it's the only public function in the system. It validates Firebase Auth (via `onCall`), then performs the WIF exchange:
 
 ```typescript
 export const exchangeToken = onCall<TokenExchangeRequest, Promise<TokenExchangeResponse>>(
@@ -266,7 +266,7 @@ async function exchangeViaSTS(firebaseToken: string): Promise<string> {
 }
 ```
 
-The `audience` is critical—it's the full path to your WIF provider:
+The `audience` is critical - it's the full path to your WIF provider:
 ```
 //iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{POOL_ID}/providers/{PROVIDER_ID}
 ```
@@ -339,8 +339,8 @@ export const generateAIToken = onRequest(
 ```
 
 The dual-token pattern sends:
-- `Authorization: Bearer {gcpToken}` — IAM authentication
-- `X-Firebase-Auth: {firebaseToken}` — User identity
+- `Authorization: Bearer {gcpToken}`  -  IAM authentication
+- `X-Firebase-Auth: {firebaseToken}`  -  User identity
 
 **Gotcha #3**: Firebase Functions v2's `invoker` parameter is **just metadata**. It doesn't actually create IAM policies. You need to manually grant `roles/run.invoker` to your service account via Pulumi/Terraform/gcloud.
 
@@ -440,7 +440,7 @@ Invalid requests never instantiate your function. No billing for attacks.
 
 **2. Fine-grained access control**
 
-IAM policies let you restrict which service accounts, users, or groups can invoke each function—independently managed from your application code.
+IAM policies let you restrict which service accounts, users, or groups can invoke each function - independently managed from your application code.
 
 **3. GCP audit logging**
 
@@ -448,7 +448,7 @@ Every function invocation appears in Cloud Audit Logs with the authenticated ide
 
 **4. Consistent security model**
 
-Your functions integrate with GCP's broader security ecosystem—VPC Service Controls, Organization Policies, etc.
+Your functions integrate with GCP's broader security ecosystem - VPC Service Controls, Organization Policies, etc.
 
 ### The Hybrid Approach
 
@@ -456,7 +456,7 @@ You don't have to choose all-or-nothing. I use a hybrid:
 
 | Function Type | Auth Method | Why |
 |---------------|-------------|-----|
-| Token exchange (`exchangeToken`) | `onCall` + Firebase Auth | Bootstrap function—must be callable without IAM tokens |
+| Token exchange (`exchangeToken`) | `onCall` + Firebase Auth | Bootstrap function - must be callable without IAM tokens |
 | AI/expensive functions | `onRequest` + IAM | Billing protection critical |
 | Admin functions | `onRequest` + IAM | Restricted to admin service account |
 | Low-cost utilities | `onCall` + Firebase Auth | Convenience outweighs billing risk |
@@ -626,7 +626,7 @@ export const myFunction = onRequest({
 
 ### Bug #2: Function Name Case Sensitivity
 
-When granting IAM permissions via Pulumi/Terraform, you need the Cloud Run service name—which is the **lowercase** version of your function name:
+When granting IAM permissions via Pulumi/Terraform, you need the Cloud Run service name - which is the **lowercase** version of your function name:
 
 ```typescript
 // Function export name
@@ -736,13 +736,13 @@ This data is invaluable for detecting abuse and debugging auth issues.
 
 Workload Identity Federation + the dual-token pattern gives you:
 
-1. **Billing attack protection** — Invalid requests rejected *before* function invocation means no billing for attacks
+1. **Billing attack protection**  -  Invalid requests rejected *before* function invocation means no billing for attacks
 2. **True IAM protection** for Cloud Functions without exposing service account keys
 3. **User identity preservation** through the Firebase token header
 4. **Defense in depth** with rate limiting, IAM policies, and Firebase Auth validation
 5. **Flexibility** to support mobile apps, web apps, and admin portals with the same infrastructure
 
-The implementation is non-trivial—you're essentially bridging two authentication systems—but the security posture is dramatically better than Firebase Auth alone.
+The implementation is non-trivial - you're essentially bridging two authentication systems - but the security posture is dramatically better than Firebase Auth alone.
 
 For any application where:
 - Functions call paid APIs (AI services, external integrations)
@@ -761,4 +761,4 @@ This is the right approach. The one-time complexity of setting up WIF pays for i
 - [IAM Credentials API - generateIdToken](https://cloud.google.com/iam/docs/reference/credentials/rest/v1/projects.serviceAccounts/generateIdToken)
 - [Firebase Auth REST API](https://firebase.google.com/docs/reference/rest/auth)
 
-**Note**: Firebase exposes OIDC discovery at `https://securetoken.google.com/{YOUR_PROJECT_ID}/.well-known/openid-configuration` — replace `{YOUR_PROJECT_ID}` with your Firebase project ID to verify the endpoint.
+**Note**: Firebase exposes OIDC discovery at `https://securetoken.google.com/{YOUR_PROJECT_ID}/.well-known/openid-configuration`  -  replace `{YOUR_PROJECT_ID}` with your Firebase project ID to verify the endpoint.
