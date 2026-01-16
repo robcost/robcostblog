@@ -57,7 +57,7 @@ When I stepped back, three things crystallised:
 
 The sequence matters. Curiosity enables adaptation, you see the adjacent possible because you're still looking. Adaptation generates learning, you accumulate experience by moving through change, not avoiding it. Giving forward is what you do with what you've learned, it's the legacy that compounds.
 
-{{< callout >}}
+{{< callout class="text-center" >}}
 **Stay Curious. Adapt. Give Forward.**
 {{< /callout >}}
 
