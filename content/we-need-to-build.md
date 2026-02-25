@@ -36,7 +36,7 @@ We don't have to be the perpetual consumer country, forever importing and never 
 
 There's a particular strain of Australian AI commentary that drives me up the wall. It goes something like: "everyone is overhyping AI, the productivity gains haven't materialised, so let's slow down and think carefully before we act." [John H. Howard's recent piece in Pearls and Irritations](https://johnmenadue.com/post/2026/02/why-we-need-to-stop-predicting-ai-and-start-thinking-about-it/) is a good example — thoughtful, measured, and ultimately an argument for doing less while we figure things out.
 
-Here's my problem with it. They're half right, and the half they're right about is the unimportant half.
+Here's my problem with it. He's half right, and the half he is right about is the unimportant half.
 
 Amara's Law says we tend to overestimate the effect of a technology in the short run and underestimate it in the long run. The "let's slow down" crowd is correctly identifying the short-term overestimation. Yes, the consulting firm projections are noisy. Yes, most enterprise AI pilots fail to deliver measurable returns. Yes, the February 2026 market correction exposed the gap between AI infrastructure spending and demonstrated revenue.
 
