@@ -10,7 +10,7 @@ tags:
 excludeSearch: false
 ---
 
-Give me a billion dollars, 20 smart and well-paid people, access to GPUs and cloud resources, and twelve months. I'd give it a 1% chance of being a worthwhile investment, but it could be the Snowy Hydro of the 21st century for Australia.
+Give me a 100 million dollars, 20 smart and well-paid people, access to GPUs and cloud resources, and twelve months. I'd give it a 50% chance of being a worthwhile investment, but it could be the Snowy Hydro of the 21st century for Australia.
 
 I've watched the discourse about AI in Australia for a while now, the hand-wringing about being "left behind," the earnest policy papers, the endless conferences. And I keep arriving at the same conclusion: this isn't an AI problem. It's a risk problem. We've lost the appetite for doing big things for the benefit of the nation.
 
@@ -112,4 +112,4 @@ I keep coming back to the same place. The capability exists. The talent exists. 
 
 We need leaders unafraid to be ambitious for our future. We need to be comfortable with the possibility of failure, because the cost of not trying dwarfs the cost of trying and occasionally getting it wrong. We need to stop studying the wave and start riding it.
 
-We need to build. If I had a billion dollars I'd do it.
+We need to build. If I had a 100 million dollars I'd do it.
