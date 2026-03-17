@@ -133,6 +133,8 @@ The response structure looks something like this:
 
 Every claim Claude makes that's derived from the source document gets a citation pointing to the exact text. The `cited_text` field contains the actual passage from the source, and the character indices let you highlight the exact location in the original document. This isn't Claude paraphrasing and hoping, it's a verified reference to content that actually exists in your document.
 
+![How Citations link responses back to source documents](/images/citations_linking.svg)
+
 ## The three document types
 
 Citations work with three types of source documents, each with different citation formats:

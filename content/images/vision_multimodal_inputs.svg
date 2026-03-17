@@ -1,0 +1,72 @@
+<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text x="340" y="30" text-anchor="middle" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500">How Claude processes visual and document inputs</text>
+
+<!-- Input types (left column) -->
+<text x="110" y="62" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">Input sources</text>
+
+<!-- Image input -->
+<rect x="30" y="76" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235)"/>
+<text x="110" y="96" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">Images</text>
+<text x="110" y="114" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.8">JPEG, PNG, GIF, WebP</text>
+
+<!-- PDF input -->
+<rect x="30" y="136" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236)"/>
+<text x="110" y="156" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">PDF documents</text>
+<text x="110" y="174" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.8">Text + visual per page</text>
+
+<!-- Text input -->
+<rect x="30" y="196" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165)"/>
+<text x="110" y="216" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">Text prompt</text>
+<text x="110" y="234" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.8">Your question / task</text>
+
+<!-- Delivery methods (below inputs) -->
+<rect x="30" y="262" width="160" height="56" rx="6" fill="none" stroke-width="0.5" style="stroke:rgb(156, 154, 146);opacity:0.3"/>
+<text x="110" y="280" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Three delivery methods:</text>
+<text x="110" y="296" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Base64 | URL | Files API</text>
+<text x="110" y="312" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.7">Up to 100 images per request</text>
+
+<!-- Arrows from inputs to Claude -->
+<line x1="190" y1="101" x2="264" y2="162" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+<line x1="190" y1="161" x2="264" y2="168" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+<line x1="190" y1="221" x2="264" y2="178" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Claude processing (center) -->
+<rect x="268" y="130" width="150" height="80" rx="10" stroke-width="0.5" style="fill:rgb(76, 58, 10);stroke:rgb(224, 186, 90)"/>
+<text x="343" y="158" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:13px;font-weight:500">Claude</text>
+<text x="343" y="178" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Same reasoning engine</text>
+<text x="343" y="194" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">for text and visual input</text>
+
+<!-- Arrows to outputs -->
+<line x1="418" y1="148" x2="488" y2="101" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+<line x1="418" y1="168" x2="488" y2="161" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+<line x1="418" y1="188" x2="488" y2="221" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Output types (right column) -->
+<text x="570" y="62" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">Combine with</text>
+
+<!-- Text analysis -->
+<rect x="492" y="76" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89)"/>
+<text x="572" y="96" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:500">Extended Thinking</text>
+<text x="572" y="114" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.8">Deep document analysis</text>
+
+<!-- Structured data -->
+<rect x="492" y="136" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89)"/>
+<text x="572" y="156" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:500">Structured Outputs</text>
+<text x="572" y="174" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.8">Extract to guaranteed JSON</text>
+
+<!-- Actions -->
+<rect x="492" y="196" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89)"/>
+<text x="572" y="216" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:500">Tool Use</text>
+<text x="572" y="234" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.8">See and act on what's found</text>
+
+<!-- Token cost note -->
+<rect x="268" y="280" width="384" height="56" rx="8" fill="none" stroke-width="0.5" style="stroke:rgb(156, 154, 146);opacity:0.3"/>
+<text x="460" y="300" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Token costs: images ~ width x height / 750</text>
+<text x="460" y="318" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">PDFs ~ 1,500-3,000 tokens per page (text + image)</text>
+<text x="460" y="334" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.7">Resize images below 1568px on longest edge for best perf</text>
+
+<!-- Bottom summary -->
+<text x="340" y="380" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400">Claude is a reasoning model with vision — it interprets, not just perceives</text>
+</svg>

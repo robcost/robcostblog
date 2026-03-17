@@ -25,6 +25,8 @@ And for me personally, this is one of the capabilities I find most exciting. So 
 
 The mental model is simple: you send images to Claude alongside your text prompt, and Claude can see and reason about them. Under the hood, images are converted to tokens (roughly calculated as `width × height / 750`), and Claude processes them through the same architecture it uses for text. This isn't a separate computer vision model bolted on, it's the same reasoning engine applied to visual input.
 
+![How Claude processes visual and document inputs](/images/vision_multimodal_inputs.svg)
+
 Claude supports JPEG, PNG, GIF, and WebP images, and you can send them three ways: as base64-encoded data, as a URL reference, or via the [Files API](https://platform.claude.com/docs/en/build-with-claude/files) (upload once, reference by ID in future requests).
 
 Here's the simplest possible example, sending an image from a URL:
