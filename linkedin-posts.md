@@ -1,12 +1,12 @@
 
 # Extended Thinking - 18 March 9am AEST
-There's so much discourse over AI right now, my social feeds are full of opposing views. Plenty of "AI is going to replace everything" takes. Plenty of "AI is garbage" takes. Plenty of clever memes. I want to see more from people actually building things, and since I've been building with this stuff for the last couple of years I thought I would also start contributing.
+There's so much discourse over AI right now, my social feeds are full of opposing views. Plenty of "AI is going to replace everything" takes. Plenty of "AI is garbage" takes. Plenty of clever memes. Plenty of slop. I want to see more from people actually building things, and since I've been building with this stuff for quite some time now I thought I would also start contributing. I'm building, I'm making mistakes, I'm learning just like everyone else.
 
 So I started a 10-part series breaking down Anthropic Claude API features I use in production. Just what works, what doesn't, and code you can run and learn from, minus the hype and blah-blah. Part 1 is Extended Thinking, the feature that gives Claude space to reason before it responds. 
 
-I walk through how it works, when to use it, and include TypeScript examples you can drop into your own projects.
+I walk through how it works, when to use it, and include TypeScript examples you can learn from.
 
-Link in first comment...
+Link in comments...
 
 
 https://robcost.com/blog/claude-extended-thinking/

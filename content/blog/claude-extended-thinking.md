@@ -35,7 +35,7 @@ But if you throw a genuinely complex question at a language model, a business de
 
 ## So what is Extended Thinking?
 
-Extended Thinking is Anthropic's way of giving Claude a digital scratchpad. Others in the AI world might refer to it as **Test Time Compute (TTC),** the idea that you can make an AI respond better not just by training it on more data (which happens once, upfront, and costs billions), but by giving it more compute *at the moment it's answering your question*. Anthropic themselves describe it as Claude benefiting from ["serial test-time compute"](https://www.anthropic.com/news/visible-extended-thinking), using multiple sequential reasoning steps before producing its final output.
+Extended Thinking is Anthropic's way of giving Claude a digital scratchpad. Others in the AI world might refer to it as **Reasoning** or **Test Time Compute (TTC),** the idea that you can make an AI respond better not just by training it on more data (which happens once, upfront, and costs billions), but by giving it more compute *at the moment it's answering your question*. Anthropic themselves describe it as Claude benefiting from ["serial test-time compute"](https://www.anthropic.com/news/visible-extended-thinking), using multiple sequential reasoning steps before producing its final output.
 
 I don't want to anthropomorphise, yes it's not like a human thinking, but it does allow AI systems to consider and move in hopefully more accurate directions. When you enable it through the API, Claude doesn't just start generating its response immediately. Instead, it first works through the problem internally, reasoning step by step, considering alternatives, checking its own logic, before committing to a final answer. It's still generating tokens the same way, but we're allowing it to "think" before giving its final answer.
 
@@ -258,7 +258,7 @@ import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
 
-const stream = client.messages.stream({
+const stream = await client.messages.stream({
   model: "claude-sonnet-4-6",
   max_tokens: 16000,
   thinking: {
@@ -272,27 +272,27 @@ const stream = client.messages.stream({
   ],
 });
 
-stream.on("contentBlockStart", (event) => {
-  if (event.contentBlock.type === "thinking") {
-    process.stdout.write("\n🧠 Thinking: ");
-  } else if (event.contentBlock.type === "text") {
-    process.stdout.write("\n💬 Response: ");
+for await (const event of stream) {
+  if (event.type === "content_block_start") {
+    if (event.content_block.type === "thinking") {
+      process.stdout.write("\n🧠 Thinking: ");
+    } else if (event.content_block.type === "text") {
+      process.stdout.write("\n💬 Response: ");
+    }
+  } else if (event.type === "content_block_delta") {
+    if (event.delta.type === "thinking_delta") {
+      process.stdout.write(event.delta.thinking);
+    } else if (event.delta.type === "text_delta") {
+      process.stdout.write(event.delta.text);
+    }
   }
-});
-
-stream.on("contentBlockDelta", (event) => {
-  if (event.delta.type === "thinking_delta") {
-    process.stdout.write(event.delta.thinking);
-  } else if (event.delta.type === "text_delta") {
-    process.stdout.write(event.delta.text);
-  }
-});
+}
 
 const finalMessage = await stream.finalMessage();
 console.log("\n\nTokens used:", finalMessage.usage);
 ```
 
-One thing to be aware of with streaming: the thinking content can arrive in larger, "chunkier" batches rather than the smooth token-by-token delivery you get with regular text responses. This is expected behaviour. Anthropic acknowledges it's a known UX rough edge they're working on smoothing out.
+One thing to be aware of with streaming: the thinking content can arrive in larger, "chunkier" batches rather than the smooth token-by-token delivery you get with regular text responses.
 
 ## Why should you care?
 
