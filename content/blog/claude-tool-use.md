@@ -31,6 +31,8 @@ When Claude receives a message from a user, it assesses whether any of the avail
 
 This separation is deliberate and important. Claude never has direct access to your systems. It can only *request* actions through the interface you define. You control what's available, what gets executed, and what results come back. It's a contract: Claude decides *when* and *how* to use a tool, you decide *what happens* when it does.
 
+![The tool use loop](/images/tool_use_loop.svg)
+
 There are two categories of tools in the Claude API:
 
 **Client tools** are tools you define and execute yourself. Claude tells you what it wants to call, you run the function in your own environment, and you return the results. This is the fundamental building block for agentic applications. You can wrap any API, database query, internal service, or business logic as a client tool.

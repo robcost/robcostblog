@@ -37,6 +37,8 @@ Structured Outputs guarantee that Claude's response conforms to a JSON schema yo
 
 It works through a technique called constrained decoding. When you provide a schema, Anthropic compiles it into a grammar that constrains Claude's token generation. At every step of the generation process, only tokens that would produce valid output according to your schema are allowed. It's not post-processing or validation after the fact, it's built into the generation itself.
 
+![How constrained decoding guarantees valid output](/images/structured_outputs_constraint.svg)
+
 There are two flavours, and they solve different problems:
 
 **JSON Outputs** (`output_config.format`) control the shape of Claude's actual response. When you need Claude to return data in a specific structure, like extracting entities from text or formatting an analysis report, this is what you use.

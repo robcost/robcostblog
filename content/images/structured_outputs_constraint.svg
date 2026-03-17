@@ -1,0 +1,76 @@
+<svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text x="340" y="30" text-anchor="middle" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500">How constrained decoding guarantees valid output</text>
+
+<!-- Without Structured Outputs (top) -->
+<text x="340" y="60" text-anchor="middle" style="fill:rgb(240, 153, 123);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:13px;font-weight:500">Without Structured Outputs</text>
+
+<!-- Prompt -->
+<rect x="40" y="76" width="130" height="44" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165)"/>
+<text x="105" y="96" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">"Extract data and</text>
+<text x="105" y="112" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">return as JSON"</text>
+
+<line x1="170" y1="98" x2="210" y2="98" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Claude generates freely -->
+<rect x="214" y="76" width="120" height="44" rx="6" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236)"/>
+<text x="274" y="96" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Claude generates</text>
+<text x="274" y="112" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">free-form text</text>
+
+<line x1="334" y1="98" x2="374" y2="98" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Maybe valid output -->
+<rect x="378" y="72" width="130" height="26" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89)"/>
+<text x="443" y="89" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Valid JSON (99%)</text>
+<rect x="378" y="104" width="130" height="26" rx="6" stroke-width="0.5" style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123)"/>
+<text x="443" y="121" text-anchor="middle" style="fill:rgb(245, 196, 179);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Broken JSON (1%)</text>
+
+<line x1="508" y1="117" x2="548" y2="117" marker-end="url(#arrow)" style="stroke:rgb(240, 153, 123);stroke-width:1.5px"/>
+
+<!-- Retry loop -->
+<rect x="552" y="100" width="90" height="36" rx="6" stroke-width="0.5" style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123)"/>
+<text x="597" y="117" text-anchor="middle" style="fill:rgb(245, 196, 179);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Try/catch</text>
+<text x="597" y="131" text-anchor="middle" style="fill:rgb(245, 196, 179);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">retry...</text>
+
+<!-- Divider -->
+<line x1="40" y1="156" x2="640" y2="156" stroke-dasharray="4 3" style="stroke:rgb(156, 154, 146);stroke-width:1px;opacity:0.3"/>
+
+<!-- With Structured Outputs (bottom) -->
+<text x="340" y="182" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:13px;font-weight:500">With Structured Outputs</text>
+
+<!-- Prompt + Schema -->
+<rect x="40" y="198" width="130" height="56" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165)"/>
+<text x="105" y="218" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Prompt + JSON</text>
+<text x="105" y="234" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Schema definition</text>
+<text x="105" y="248" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.7">{ type, properties... }</text>
+
+<line x1="170" y1="226" x2="210" y2="226" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Schema compiled to grammar -->
+<rect x="214" y="198" width="160" height="56" rx="6" stroke-width="0.5" style="fill:rgb(76, 58, 10);stroke:rgb(224, 186, 90)"/>
+<text x="294" y="218" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:500">Constrained decoding</text>
+<text x="294" y="236" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Only valid tokens allowed</text>
+<text x="294" y="250" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">at each generation step</text>
+
+<line x1="374" y1="226" x2="414" y2="226" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Guaranteed valid output -->
+<rect x="418" y="198" width="200" height="56" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89)"/>
+<text x="518" y="218" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:500">Guaranteed valid JSON</text>
+<text x="518" y="236" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Correct types, all required</text>
+<text x="518" y="250" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">fields present, enum values</text>
+
+<!-- Two flavours section -->
+<rect x="60" y="280" width="260" height="80" rx="8" fill="none" stroke-width="0.5" style="stroke:rgb(133, 183, 235);opacity:0.5"/>
+<text x="190" y="300" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">JSON Outputs</text>
+<text x="190" y="318" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Controls Claude's response shape</text>
+<text x="190" y="336" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.7">output_config.format</text>
+<text x="190" y="352" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.7">+ Zod integration for TypeScript</text>
+
+<rect x="360" y="280" width="260" height="80" rx="8" fill="none" stroke-width="0.5" style="stroke:rgb(175, 169, 236);opacity:0.5"/>
+<text x="490" y="300" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">Strict Tool Use</text>
+<text x="490" y="318" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Guarantees tool call parameters</text>
+<text x="490" y="336" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.7">strict: true on tool definition</text>
+<text x="490" y="352" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.7">No wrong types, no missing fields</text>
+</svg>

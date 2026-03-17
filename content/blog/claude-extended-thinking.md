@@ -61,6 +61,8 @@ The `signature` field is worth a quick mention. In Claude 4 models, the thinking
 
 The mental model I and others align it to is the difference between System 1 and System 2 thinking, Daniel Kahneman's framework from *Thinking, Fast and Slow*. Standard Claude is System 1: fast, intuitive, generating an answer in one pass. Extended Thinking is System 2: deliberate, analytical, slower, but much better when the stakes are high or the problem is genuinely hard.
 
+![Standard response vs Extended Thinking](/images/extended_thinking_modes.svg)
+
 ## The three modes of thinking
 
 Here's where it gets interesting. Anthropic doesn't just offer one flavour of thinking. There are actually three modes you can use, and choosing the right one matters.

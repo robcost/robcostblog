@@ -1,0 +1,63 @@
+<svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text x="340" y="30" text-anchor="middle" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500">The tool use loop</text>
+
+<!-- Step 1: User sends message -->
+<rect x="40" y="60" width="140" height="50" rx="6" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165)"/>
+<text x="110" y="82" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">1. User sends</text>
+<text x="110" y="100" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400">message + tools</text>
+
+<!-- Arrow right -->
+<line x1="180" y1="85" x2="218" y2="85" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Step 2: Claude decides -->
+<rect x="222" y="50" width="160" height="70" rx="6" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236)"/>
+<text x="302" y="76" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">2. Claude decides</text>
+<text x="302" y="94" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Returns tool_use block</text>
+<text x="302" y="110" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400;opacity:0.7">stop_reason: "tool_use"</text>
+
+<!-- Arrow right -->
+<line x1="382" y1="85" x2="418" y2="85" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Step 3: Your code executes -->
+<rect x="422" y="50" width="160" height="70" rx="6" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235)"/>
+<text x="502" y="76" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">3. Your code runs</text>
+<text x="502" y="94" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">the actual function</text>
+<text x="502" y="110" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400;opacity:0.7">(API, DB, service...)</text>
+
+<!-- Arrow down from step 3 -->
+<line x1="502" y1="120" x2="502" y2="158" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Step 4: Return result -->
+<rect x="422" y="162" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235)"/>
+<text x="502" y="184" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">4. Send tool_result</text>
+<text x="502" y="200" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">back to Claude</text>
+
+<!-- Arrow left from step 4 -->
+<line x1="422" y1="187" x2="382" y2="187" marker-end="url(#arrow)" style="stroke:rgb(156, 154, 146);stroke-width:1.5px"/>
+
+<!-- Step 5: Claude processes -->
+<rect x="222" y="162" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236)"/>
+<text x="302" y="182" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">5. Claude processes</text>
+<text x="302" y="200" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">result and decides...</text>
+
+<!-- Loop arrow going up from step 5 back to step 2 -->
+<path d="M 222 175 L 200 175 L 200 130 L 222 130" fill="none" marker-end="url(#arrow)" style="stroke:rgb(224, 186, 90);stroke-width:1.5px" stroke-dasharray="4 3"/>
+<text x="195" y="156" text-anchor="end" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Need more</text>
+<text x="195" y="168" text-anchor="end" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">tools?</text>
+
+<!-- Arrow down from step 5 (done) -->
+<line x1="302" y1="212" x2="302" y2="248" marker-end="url(#arrow)" style="stroke:rgb(93, 202, 165);stroke-width:1.5px"/>
+<text x="326" y="236" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Done!</text>
+
+<!-- Step 6: Final response -->
+<rect x="222" y="252" width="160" height="50" rx="6" stroke-width="0.5" style="fill:rgb(39, 80, 10);stroke:rgb(151, 196, 89)"/>
+<text x="302" y="274" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">6. Final response</text>
+<text x="302" y="292" text-anchor="middle" style="fill:rgb(192, 221, 151);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400;opacity:0.8">stop_reason: "end_turn"</text>
+
+<!-- Key insight box -->
+<rect x="60" y="322" width="560" height="44" rx="8" fill="none" stroke-width="0.5" style="stroke:rgb(156, 154, 146);opacity:0.3"/>
+<text x="340" y="342" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400">Claude never has direct access to your systems</text>
+<text x="340" y="358" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400">It requests actions through the interface you define — you control what gets executed</text>
+</svg>

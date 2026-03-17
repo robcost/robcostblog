@@ -1,0 +1,75 @@
+<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+
+<text x="340" y="30" text-anchor="middle" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500">How Citations link responses back to source documents</text>
+
+<!-- Source document (left) -->
+<text x="140" y="58" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">Source document</text>
+
+<rect x="30" y="68" width="220" height="260" rx="8" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);opacity:0.8"/>
+<text x="140" y="94" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:500">Q3 2025 Financial Report</text>
+
+<!-- Passage A highlighted -->
+<rect x="42" y="108" width="196" height="40" rx="4" stroke-width="1" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165)"/>
+<text x="140" y="126" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Revenue was $142.3M,</text>
+<text x="140" y="142" text-anchor="middle" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">23% increase YoY</text>
+
+<!-- Normal text -->
+<rect x="42" y="156" width="196" height="24" rx="4" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);opacity:0.4"/>
+<text x="140" y="172" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.5">...</text>
+
+<!-- Passage B highlighted -->
+<rect x="42" y="188" width="196" height="40" rx="4" stroke-width="1" style="fill:rgb(76, 58, 10);stroke:rgb(224, 186, 90)"/>
+<text x="140" y="206" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Gross margin improved</text>
+<text x="140" y="222" text-anchor="middle" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">to 68.4% from 64.1%</text>
+
+<!-- Normal text -->
+<rect x="42" y="236" width="196" height="24" rx="4" stroke-width="0.5" style="fill:rgb(12, 68, 124);stroke:rgb(133, 183, 235);opacity:0.4"/>
+<text x="140" y="252" text-anchor="middle" style="fill:rgb(133, 183, 235);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400;opacity:0.5">...</text>
+
+<!-- Passage C highlighted -->
+<rect x="42" y="268" width="196" height="40" rx="4" stroke-width="1" style="fill:rgb(60, 52, 137);stroke:rgb(175, 169, 236)"/>
+<text x="140" y="286" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Net income $18.7M,</text>
+<text x="140" y="302" text-anchor="middle" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">up from $11.2M</text>
+
+<!-- Claude's response (right) -->
+<text x="520" y="58" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:500">Claude's response (with citations)</text>
+
+<rect x="390" y="68" width="260" height="260" rx="8" stroke-width="0.5" style="fill:rgb(68, 68, 65);stroke:rgb(180, 178, 169);opacity:0.8"/>
+
+<!-- Response text block -->
+<text x="404" y="92" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Key highlights include:</text>
+
+<!-- Cited claim A -->
+<rect x="400" y="104" width="236" height="44" rx="4" stroke-width="1" style="fill:none;stroke:rgb(93, 202, 165)"/>
+<text x="414" y="120" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Revenue reached $142.3M with</text>
+<text x="414" y="136" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">23% year-over-year growth</text>
+<text x="618" y="144" text-anchor="end" style="fill:rgb(93, 202, 165);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:9px;font-weight:500">[char 29-111]</text>
+
+<!-- Cited claim B -->
+<rect x="400" y="160" width="236" height="44" rx="4" stroke-width="1" style="fill:none;stroke:rgb(224, 186, 90)"/>
+<text x="414" y="176" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Gross margin improved to</text>
+<text x="414" y="192" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">68.4% from 64.1%</text>
+<text x="618" y="200" text-anchor="end" style="fill:rgb(224, 186, 90);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:9px;font-weight:500">[char 113-218]</text>
+
+<!-- Cited claim C -->
+<rect x="400" y="216" width="236" height="44" rx="4" stroke-width="1" style="fill:none;stroke:rgb(175, 169, 236)"/>
+<text x="414" y="232" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Net income rose to $18.7M</text>
+<text x="414" y="248" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">from $11.2M prior year</text>
+<text x="618" y="256" text-anchor="end" style="fill:rgb(175, 169, 236);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:9px;font-weight:500">[char 315-385]</text>
+
+<!-- Uncited text -->
+<text x="414" y="284" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">Overall the quarter showed</text>
+<text x="414" y="298" style="fill:rgb(250, 249, 245);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:10px;font-weight:400">strong financial performance.</text>
+<text x="414" y="316" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:9px;font-weight:400;opacity:0.6">(no citation — Claude's synthesis)</text>
+
+<!-- Linking arrows -->
+<path d="M 250 128 C 320 128, 320 126, 400 126" fill="none" marker-end="url(#arrow)" style="stroke:rgb(93, 202, 165);stroke-width:1.5px" stroke-dasharray="4 3"/>
+<path d="M 250 208 C 320 208, 320 182, 400 182" fill="none" marker-end="url(#arrow)" style="stroke:rgb(224, 186, 90);stroke-width:1.5px" stroke-dasharray="4 3"/>
+<path d="M 250 288 C 320 288, 320 238, 400 238" fill="none" marker-end="url(#arrow)" style="stroke:rgb(175, 169, 236);stroke-width:1.5px" stroke-dasharray="4 3"/>
+
+<!-- Document types -->
+<rect x="30" y="348" width="620" height="56" rx="8" fill="none" stroke-width="0.5" style="stroke:rgb(156, 154, 146);opacity:0.3"/>
+<text x="340" y="368" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Supports three document types: Plain text (char indices) | PDFs (page numbers) | Custom content (block indices)</text>
+<text x="340" y="388" text-anchor="middle" style="fill:rgb(194, 192, 182);font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:11px;font-weight:400">Every cited claim points to the exact passage — not generated references, verified links</text>
+</svg>
