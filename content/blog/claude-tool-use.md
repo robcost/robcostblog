@@ -1,6 +1,6 @@
 ---
 title: When AI Learns to Use Tools
-date: 2026-03-20
+date: 2026-03-23
 authors:
   - name: robcost
     link: https://github.com/robcost
