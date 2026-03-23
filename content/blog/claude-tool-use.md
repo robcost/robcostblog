@@ -17,9 +17,9 @@ excludeSearch: false
 
 In [Part 1](/blog/claude-extended-thinking) I covered Extended Thinking, how giving Claude space to reason before answering dramatically improves the quality of its responses on hard problems. That was about Claude learning to *think*. This post is about Claude learning to *act*.
 
-Here's the thing: most AI products today are stuck in the advice phase. They can analyse, summarise, draft, and suggest, but when it comes to actually *doing* something, a human has to take the output, leave the chat window, and go execute it somewhere else. Copy the SQL into a terminal. Paste the email into Outlook. Manually look up the data the AI said it needed.
+Most AI products people use today are stuck in the advice phase, it's question and response, chat chat. They can analyse, summarise, draft, and suggest, but when it comes to actually *doing* something, a human has to take the output, leave the chat window, and go execute it somewhere else. Copy the SQL into a terminal. Paste the email into Outlook. Manually look up the data the AI said it needed.
 
-Tool use is how AI graduates from advisor to agent. It's the capability that lets Claude reach out into the real world, call your APIs, search the web, run code, and take actions on your behalf, all within a single conversation. And it's arguably the most transformative feature in the Claude API.
+Tool use is how AI graduates from advisor to agent. It's the capability that lets Claude reach out into the "real" world, call your APIs, search the web, run code, and take actions on your behalf, all within a single conversation.
 
 ## What is tool use?
 
@@ -29,7 +29,7 @@ You describe a set of capabilities to Claude as structured definitions (JSON sch
 
 When Claude receives a message from a user, it assesses whether any of the available tools would help answer the question. If it decides to use one, it doesn't execute anything directly. Instead, it responds with a structured request saying "I'd like to call this tool with these parameters." Your code then executes the actual function, and you pass the results back to Claude. Claude uses those results to formulate its final answer (or to decide it needs to call another tool).
 
-This separation is deliberate and important. Claude never has direct access to your systems. It can only *request* actions through the interface you define. You control what's available, what gets executed, and what results come back. It's a contract: Claude decides *when* and *how* to use a tool, you decide *what happens* when it does.
+This separation is deliberate and important. **Claude never has direct access to your systems**. It can only *request* actions through the interface you define. You control what's available, what gets executed, and what results come back. It's a contract: Claude decides *when* and *how* to use a tool, you decide *what happens* when it does, this includes how you want to handle security and observability and all other manner of normal expectations of an enterprise system, you are responsible and in control.
 
 ![The tool use loop](/images/tool_use_loop.svg)
 
@@ -150,7 +150,7 @@ if (response.stop_reason === "tool_use") {
 }
 ```
 
-There's a clear rhythm here: you send a message, Claude responds with a tool call, you execute it and return the result, Claude formulates its answer. That's the fundamental loop. Every tool use interaction, no matter how complex, follows this pattern.
+Its a simple loop really: you send a message, Claude responds with a tool call, you execute it and return the result, Claude formulates its answer. That's the fundamental loop. Every tool use interaction, no matter how complex, follows this pattern.
 
 A few things worth noting. The `stop_reason` of `"tool_use"` is your signal that Claude wants to call a tool rather than respond directly. The `tool_use_id` links the result back to the specific tool call, this matters when Claude calls multiple tools. And the full conversation history (including Claude's tool call and your result) gets sent back each time, so Claude has the full context.
 
@@ -311,7 +311,7 @@ const response = await client.messages.create({
   max_tokens: 4096,
   tools: [
     {
-      type: "web_fetch_20250305",
+      type: "web_fetch_20250910",
       name: "web_fetch",
     },
   ],
@@ -335,7 +335,7 @@ const response = await client.messages.create({
   max_tokens: 4096,
   tools: [
     {
-      type: "code_execution_20250522",
+      type: "code_execution_20250825",
       name: "code_execution",
     },
   ],
@@ -478,8 +478,6 @@ Tool use is the primitive that turns language models into agents. Without it, Cl
 The broader ecosystem is accelerating this. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io) is emerging as a standard for connecting AI models to external services, and Anthropic has built an [MCP connector](https://platform.claude.com/docs/en/agents-and-tools/mcp-connector) directly into the Messages API so you can connect to remote MCP servers without building a client yourself. Companies like Notion, Slack, GitHub, and many others are shipping MCP servers, which means the set of things Claude can interact with is growing rapidly.
 
 I've been watching this space from the perspective of someone who's building a product on top of these APIs, and the pace at which the "what's possible" boundary is expanding is genuinely remarkable. A year ago, you'd need a dedicated team to build what a single developer can now wire together with tool definitions and an agentic loop.
-
-If you're evaluating AI for your business, the question isn't really "should we use AI?" anymore. It's "what tools should we give it access to?" And that's a much more interesting, and more actionable, question.
 
 ---
 
