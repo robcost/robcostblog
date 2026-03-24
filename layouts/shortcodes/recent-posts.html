@@ -1,0 +1,9 @@
+{{ $count := .Get "count" | default 5 }}
+{{ $section := .Get "section" | default "blog" }}
+{{ $pages := where .Site.RegularPages "Section" $section }}
+{{ range first (int $count) ($pages.ByDate.Reverse) }}
+<a href="{{ .RelPermalink }}" class="blog-card">
+  <span class="blog-card-title">{{ .Title }}</span>
+  <span class="blog-card-date">{{ .Date.Format "2 Jan 2006" }}</span>
+</a>
+{{ end }}

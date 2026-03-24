@@ -133,30 +133,7 @@ I'm interested in applied AI and ML roles, whether as an individual contributor 
 
 <div class="blog-card-list">
 
-<a href="/blog/claude-extended-thinking/" class="blog-card">
-  <span class="blog-card-title">What Happens When You Let AI Think Before It Speaks?</span>
-  <span class="blog-card-date">16 Mar 2026</span>
-</a>
-
-<a href="/blog/we-need-to-build/" class="blog-card">
-  <span class="blog-card-title">We Need to Build</span>
-  <span class="blog-card-date">25 Feb 2026</span>
-</a>
-
-<a href="/blog/on-finding-your-tenets/" class="blog-card">
-  <span class="blog-card-title">On Finding Your Tenets</span>
-  <span class="blog-card-date">16 Dec 2025</span>
-</a>
-
-<a href="/blog/securing-firebase-cloud-functions-with-workload-identity-federation/" class="blog-card">
-  <span class="blog-card-title">Securing Firebase Cloud Functions with Workload Identity Federation</span>
-  <span class="blog-card-date">27 Nov 2025</span>
-</a>
-
-<a href="/blog/on-building-joining/" class="blog-card">
-  <span class="blog-card-title">On Building vs Joining</span>
-  <span class="blog-card-date">20 Nov 2025</span>
-</a>
+{{< recent-posts count="5" section="blog" >}}
 
 </div>
 
