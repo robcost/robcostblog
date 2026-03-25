@@ -356,7 +356,7 @@ And perhaps most importantly, it shifts the conversation from "can AI do this?" 
 
 *Next in this series: I'll explore Tool Use, how Claude can reach out into the real world, call APIs, search the web, and execute code, turning it from a conversational partner into something that can actually take action.*
 
-*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 

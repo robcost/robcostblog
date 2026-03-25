@@ -238,7 +238,7 @@ With 1M tokens now available and compaction handling the overflow, the constrain
 
 *Next in this series: Batch Processing and Prompt Caching, the features that make everything we've covered so far cheaper and faster at scale.*
 
-*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 

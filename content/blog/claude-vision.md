@@ -1,6 +1,6 @@
 ---
 title: Teaching AI to See
-date: 2026-03-27
+date: 2026-03-26
 authors:
   - name: robcost
     link: https://github.com/robcost
@@ -19,7 +19,7 @@ So far in this series we've given Claude the ability to [think deeply](/blog/cla
 
 Vision and PDF support are the features that let Claude understand images and documents, not just the text in them, but the charts, diagrams, layouts, photographs, and visual information that make up so much of how the real world communicates. If you've ever wished you could just throw a screenshot, an invoice, a floorplan, or a research paper at an AI and have it *understand* what it's looking at, this is how you do it.
 
-And for me personally, this is one of the capabilities I find most exciting. So much of the information in a business context lives in documents that were never designed for machine consumption. PDFs, scanned contracts, dashboards exported as images, handwritten notes photographed on a phone. Vision turns Claude from a text processor into something that can engage with the messy visual reality of how information actually exists.
+And for me personally, this is one of the capabilities I use all the time. So much of the information in a business context lives in documents that were never designed for machine consumption. PDFs, scanned contracts, dashboards exported as images, handwritten notes photographed on a phone. Vision turns Claude from a text processor into something that can engage with the messy visual reality of how information actually exists.
 
 ## How vision works in the API
 
@@ -321,7 +321,7 @@ const invoice = JSON.parse(
 console.log(`Invoice ${invoice.invoice_number}: $${invoice.total}`);
 ```
 
-That's an entire invoice processing pipeline in one API call. No OCR service, no template matching, no regex parsing. Send the image, get structured data back, guaranteed to match your schema. Process a thousand invoices through [Batch Processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing) at 50% cost reduction and you've got an enterprise document processing system.
+That's an entire invoice processing pipeline in one API call. No OCR service, no template matching, no regex parsing. Send the image, get structured data back, matched to your schema. Process a thousand invoices through [Batch Processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing) at 50% cost reduction and you've got an enterprise document processing system.
 
 ### Vision + Tool Use
 
@@ -378,7 +378,7 @@ Vision and PDF support complete a significant part of the AI capabilities stack.
 3. **Structured Outputs** (Part 3): Claude can communicate in exact, machine-readable formats
 4. **Vision & PDF** (Part 4): Claude can understand visual and document-based information
 
-Together, these four capabilities let you build systems that can read a document, think about what it means, take actions based on what it found, and report results in a structured format. That's a remarkably complete toolkit for document-centric business workflows, which is, let's be honest, most business workflows.
+Together, these four capabilities let you build systems that can read a document, think about what it means, take actions based on what it found, and report results in a structured format. That's a remarkably complete toolkit for document-centric business workflows.
 
 If you're sitting on a pile of PDFs that nobody has time to read, a backlog of images that need classification, or a manual process that involves a human looking at documents and entering data into systems, there's a good chance this stack of features can automate a meaningful chunk of it.
 
@@ -386,7 +386,7 @@ If you're sitting on a pile of PDFs that nobody has time to read, a backlog of i
 
 *Next in this series: I'll explore Citations, how Claude can ground its responses in source documents and provide verifiable references, which is critical for trust in any system that processes documents.*
 
-*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 

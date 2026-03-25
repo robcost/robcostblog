@@ -221,7 +221,7 @@ The pace at which this stack has evolved is genuinely remarkable. Most of what's
 
 ---
 
-*Thanks for following along through all ten posts. This started as a LinkedIn article idea and grew into something much bigger. If any of it helped you build something, or if you've got questions, I'd genuinely love to hear about it. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*Thanks for following along through all ten posts. This started as a LinkedIn article idea and grew into something much bigger. If any of it helped you build something, or if you've got questions, I'd genuinely love to hear about it. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 

@@ -342,7 +342,7 @@ If there's one theme that runs through these optimisation features, it's this: t
 
 *Next in this series: Agent Skills, how to package domain-specific expertise into reusable modules that Claude can load on demand.*
 
-*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 

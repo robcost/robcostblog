@@ -304,7 +304,7 @@ Combined with the capabilities from earlier in this series, you can now build sy
 
 *Next in this series: Context Windows, how Claude's working memory works, why the 1M token window changes the game, and the tools for managing it when things get big.*
 
-*If you've been following along and building with any of these features, I'd genuinely love to hear about it. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*If you've been following along and building with any of these features, I'd genuinely love to hear about it. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 

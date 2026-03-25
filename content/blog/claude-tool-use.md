@@ -483,7 +483,7 @@ I've been watching this space from the perspective of someone who's building a p
 
 *Next in this series: Structured Outputs, how to guarantee that Claude's responses conform to an exact schema, and why that matters more than you think when you're building real integrations.*
 
-*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 

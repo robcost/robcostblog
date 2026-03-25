@@ -393,7 +393,7 @@ If you're evaluating whether to move an AI prototype into production, Structured
 
 *Next in this series: I'll look at how Claude can process PDFs and images, bringing document understanding capabilities into your AI workflows.*
 
-*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcostello/).*
+*If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
 ---
 
