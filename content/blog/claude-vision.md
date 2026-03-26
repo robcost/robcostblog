@@ -23,7 +23,7 @@ And for me personally, this is one of the capabilities I use all the time. So mu
 
 ## How vision works in the API
 
-The mental model is simple: you send images to Claude alongside your text prompt, and Claude can see and reason about them. Under the hood, images are converted to tokens (roughly calculated as `width × height / 750`), and Claude processes them through the same architecture it uses for text. This isn't a separate computer vision model bolted on, it's the same reasoning engine applied to visual input.
+The mental model is simple: you send images to Claude alongside your text prompt, and Claude can see and reason about them. Under the hood images are converted to tokens (roughly calculated as `width × height / 750`), and Claude processes them through the same architecture it uses for text. This isn't a separate computer vision model bolted on, it's the same reasoning engine applied to visual input.
 
 ![How Claude processes visual and document inputs](/images/vision_multimodal_inputs.svg)
 
@@ -101,7 +101,7 @@ Also, the order matters. Just like placing long text documents before your quest
 
 ## PDF support: documents as first-class citizens
 
-Images are powerful, but in the business world, the document format that rules everything is the PDF. Financial reports, contracts, research papers, invoices, compliance documents, they're all PDFs. And until recently, getting an AI to properly understand a PDF meant building a preprocessing pipeline: extract the text, run OCR on images, try to reconstruct table structures, lose all the visual layout context, and hope for the best.
+Images are powerful, but in the business world, the document format that rules everything is the PDF. Financial reports, contracts, research papers, invoices, compliance documents, they're all PDFs. And until recently getting an AI to properly understand a PDF meant building a preprocessing pipeline: extract the text, run OCR on images, try to reconstruct table structures, lose all the visual layout context, and hope for the best.
 
 Claude's PDF support skips all of that. You send the PDF directly, and Claude processes each page as both text and image simultaneously. It can read the text, understand the charts, interpret the tables, and reason about how they all relate to each other. No preprocessing, no OCR pipeline, no RAG system. Just send the document and ask your question.
 
@@ -185,8 +185,6 @@ const response = await client.beta.messages.create({
   ],
 });
 ```
-
-The file persists in Anthropic's storage, scoped to your workspace, so different API keys in the same workspace can access it. This is particularly useful when you're building a document analysis application where users upload files and then ask multiple questions.
 
 ### PDF limits and token costs
 
@@ -345,11 +343,11 @@ It's worth being honest about the limitations:
 - **Precise spatial reasoning:** Counting large numbers of small objects or doing exact pixel-level measurements isn't reliable.
 - **Rotated or heavily distorted text:** OCR quality drops significantly with poor image quality.
 
-The key insight, and one that I think a developer from [GetStream put really well](https://getstream.io/blog/anthropic-claude-visual-reasoning/), is that Claude is a reasoning model with vision capabilities, not a vision model with language bolted on. It excels at tasks that require interpretation and understanding rather than pure perception. Ask it *what a chart means* and it's excellent. Ask it to count every pixel of a specific colour and it'll struggle.
+Claude is a reasoning model with vision capabilities, not a vision model with language bolted on. Its great at tasks that require interpretation and understanding rather than pure perception (seeing). Ask it *what a chart means* and it's excellent. Ask it to count every pixel of a specific colour and it'll struggle.
 
 ## Business use cases that actually work
 
-Let me ground this in practical scenarios:
+Let me ground all of this in some practical scenarios:
 
 **Invoice and receipt processing.** Photograph a stack of receipts, send them to Claude with a structured output schema, get clean data ready for your accounting system. Combine with batch processing for volume.
 
@@ -379,8 +377,6 @@ Vision and PDF support complete a significant part of the AI capabilities stack.
 4. **Vision & PDF** (Part 4): Claude can understand visual and document-based information
 
 Together, these four capabilities let you build systems that can read a document, think about what it means, take actions based on what it found, and report results in a structured format. That's a remarkably complete toolkit for document-centric business workflows.
-
-If you're sitting on a pile of PDFs that nobody has time to read, a backlog of images that need classification, or a manual process that involves a human looking at documents and entering data into systems, there's a good chance this stack of features can automate a meaningful chunk of it.
 
 ---
 
