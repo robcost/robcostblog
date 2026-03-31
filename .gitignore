@@ -5,6 +5,11 @@ resources/
 
 # Editor
 .vscode/
+
+# Private files
+CLAUDE.md
+linkedin-posts.md
+on-ai-hardware.md
 content/.DS_Store
 .DS_Store
 content/.DS_Store
