@@ -19,7 +19,7 @@ Every feature I've covered in this series so far, [thinking deeply](/blog/claude
 
 If you've ever had a long conversation with Claude and noticed it starting to "forget" things you mentioned earlier, or if you've tried to feed it a huge document and hit a wall, you've bumped into context window limits. Understanding how the context window works, and the new tools available for managing it, is one of the most practically important things you can know as someone building with the API.
 
-And with Claude Opus 4.6 and Sonnet 4.6 now offering a 1 million token context window, the game has changed significantly.
+And with Claude Opus 4.6 and Sonnet 4.6 now offering a 1 million token context window, that's a lot more room to work with.
 
 ## What is the context window?
 

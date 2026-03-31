@@ -1,5 +1,5 @@
 ---
-title: "Show Your Working: How AI Can Cite Its Sources"
+title: "How AI Can Cite Its Sources"
 date: 2026-03-31
 authors:
   - name: robcost
@@ -15,19 +15,17 @@ excludeSearch: false
 
 ---
 
-There's a question that comes up in every single conversation I have about putting AI into production. It doesn't matter if it's a startup founder, a CTO, or a compliance officer. The question is always some version of: *"But how do I know it's not making things up?"*
+There's a question that comes up in every conversation about putting AI into production. It doesn't matter who's asking the question, everyone is wary of hallucinations (or confabulations, data-driven fabrications, factual inconsistencies, misinformation, or what ever else people choose to call it). The question is always some version of: *"But how do I know it's not making things up?"*
 
-It's a fair question. Language models generate text probabilistically. They can produce confident, articulate, entirely wrong answers. In casual use this is an annoyance. In a business context, especially anything involving legal, financial, medical, or compliance information, it's a genuine risk. And "trust me, it's usually right" is not a viable answer when you're building systems that people depend on.
+It's a fair question, we all know language models generate text probabilistically, autoregressively generating tokens. They can produce confident, articulate, entirely wrong answers. In casual use this is an annoyance. In a business context, especially anything involving legal, financial, medical, or compliance information, it's a genuine risk. And "trust me bro, it's usually right" is not a viable answer when you're building systems that people depend on.
 
-In the previous posts we've covered how Claude can [think deeply](/blog/claude-extended-thinking), [take actions](/blog/claude-tool-use), [produce structured output](/blog/claude-structured-outputs), and [understand documents and images](/blog/claude-vision). But all of those capabilities are diminished if you can't verify where the answers came from. Citations closes that loop.
+In the previous posts we've covered how Claude can [think deeply](/blog/claude-extended-thinking), [take actions](/blog/claude-tool-use), [produce structured output](/blog/claude-structured-outputs), and [understand documents and images](/blog/claude-vision). But all of those capabilities are diminished if you can't verify where the answers came from. Citations help to close that gap.
 
 ## The problem with AI-generated references
 
 Before the Citations API existed, the standard approach to getting source references from an LLM was to prompt it: "Please include citations for your claims." This sort of works, but it has serious problems.
 
-First, the citations are often wrong. The model might reference a document you provided but point to the wrong section, or paraphrase a passage and present it as a direct quote when it isn't. Second, there's no guarantee of consistency. Sometimes you get citations, sometimes you don't. The format varies between responses. And third, building the post-processing to validate these free-form citations is a significant engineering effort, you end up writing complex string-matching logic to check whether the quoted text actually appears in the source.
-
-As [Simon Willison noted](https://simonwillison.net/2025/Jan/24/anthropics-new-citations-api/) when the feature launched, building reliable citation systems previously required sophisticated prompt engineering and complex implementation code. The Citations API handles the difficult parts for you.
+First, the citations are often wrong. The model might reference a document you provided but point to the wrong section, or paraphrase a passage and present it as a direct quote when it isn't. Second, there's no guarantee of consistency. Sometimes you get citations, sometimes you don't. The format varies between responses. And third, building the post-processing to validate these free-form citations is a significant engineering effort, you end up writing complex string-matching logic to check whether the quoted text actually appears in the source. The Citations API handles the difficult parts for you.
 
 ## What Citations actually does
 
@@ -294,7 +292,7 @@ Citations verify that Claude is referencing real passages from the documents you
 
 ## Why this matters for production AI
 
-Here's the thing that I keep coming back to. The trust problem is the biggest single barrier to AI adoption in any context where the output actually matters. People are willing to use AI for low-stakes tasks (drafting an email, brainstorming ideas) precisely because they review the output before using it. But the whole point of automation is to *reduce* human review, and you can't reduce human review without a mechanism for trust.
+The trust problem is the biggest single barrier to AI adoption in any context where the output actually matters. People are willing to use AI for low-stakes tasks (drafting an email, brainstorming ideas, generating LinkedIn headshots) precisely because they review the output before using it. But the whole point of automation is to *reduce* human review, and you can't reduce human review without a mechanism for trust.
 
 Citations provide that mechanism, at least for document-grounded tasks. When every claim in Claude's response links back to a specific passage in a specific document, the reviewer's job changes from "read the entire output and verify everything" to "spot-check the citations and verify the reasoning." That's a fundamentally different workload, and it's what makes document-heavy AI workflows viable at scale.
 
@@ -313,5 +311,3 @@ Combined with the capabilities from earlier in this series, you can now build sy
 - [Citations, Claude API docs](https://platform.claude.com/docs/en/build-with-claude/citations), Full documentation on citation types, document formats, and response structure
 - [Search Results, Claude API docs](https://platform.claude.com/docs/en/build-with-claude/search-results), Citations for RAG applications using search result content blocks
 - [Introducing Citations (Anthropic blog)](https://claude.com/blog/introducing-citations-api), Anthropic's announcement post with performance benchmarks and use cases
-- [Simon Willison on the Citations API](https://simonwillison.net/2025/Jan/24/anthropics-new-citations-api/), Excellent independent analysis of the feature with practical examples
-- [Document Citations demo (Daniel Corin)](https://www.danielcorin.com/posts/2025/document-citations/), Interactive demo showing citations highlighted against source documents
