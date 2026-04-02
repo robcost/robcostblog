@@ -15,8 +15,6 @@ images:
   - /images/books3.jpeg
 ---
 
-# On Growing People
-
 I have a shelf full of books about leadership. Radical Candor, The Manager's Path, The Culture Map, The Introverted Leader.
 
 <div style="display: flex; gap: 0.75rem; margin: 1.5rem 0;">
