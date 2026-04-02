@@ -9,6 +9,8 @@ tags:
   - Claude
   - Tool Use
 excludeSearch: false
+images:
+  - /images/tool_use_loop.svg
 ---
 
 *Part 2 of a series on Claude API features for builders*

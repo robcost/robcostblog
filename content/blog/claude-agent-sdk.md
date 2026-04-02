@@ -9,6 +9,8 @@ tags:
   - Claude
   - Agent SDK
 excludeSearch: false
+images:
+  - /images/agent_sdk_vs_raw_api.svg
 ---
 
 *Part 9 of a series on Claude API features for builders*

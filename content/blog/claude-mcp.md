@@ -9,6 +9,8 @@ tags:
   - Claude
   - MCP
 excludeSearch: false
+images:
+  - /images/mcp_architecture.svg
 ---
 
 *Part 10 of a series on Claude API features for builders*

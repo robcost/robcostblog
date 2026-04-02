@@ -9,6 +9,8 @@ tags:
   - Claude
   - Citations
 excludeSearch: false
+images:
+  - /images/citations_linking.svg
 ---
 
 *Part 5 of a series on Claude API features for builders*

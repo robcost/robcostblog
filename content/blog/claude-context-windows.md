@@ -9,6 +9,8 @@ tags:
   - Claude
   - Context Windows
 excludeSearch: false
+images:
+  - /images/context_window_basics.svg
 ---
 
 *Part 6 of a series on Claude API features for builders*

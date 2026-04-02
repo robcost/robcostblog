@@ -9,6 +9,8 @@ tags:
   - Claude
   - Vision
 excludeSearch: false
+images:
+  - /images/vision_multimodal_inputs.svg
 ---
 
 *Part 4 of a series on Claude API features for builders*

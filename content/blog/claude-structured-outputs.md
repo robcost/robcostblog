@@ -9,6 +9,8 @@ tags:
   - Claude
   - Structured Outputs
 excludeSearch: false
+images:
+  - /images/structured_outputs_constraint.svg
 ---
 
 *Part 3 of a series on Claude API features for builders*

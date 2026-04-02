@@ -10,6 +10,8 @@ tags:
   - Batch Processing
   - Prompt Caching
 excludeSearch: false
+images:
+  - /images/batch_vs_realtime.svg
 ---
 
 *Part 7 of a series on Claude API features for builders*

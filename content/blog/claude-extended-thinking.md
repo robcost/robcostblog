@@ -9,6 +9,8 @@ tags:
   - Claude
   - Thinking
 excludeSearch: false
+images:
+  - /images/extended_thinking_modes.svg
 ---
 
 *Part 1 of a series on Claude API features for builders*

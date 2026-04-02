@@ -9,6 +9,8 @@ tags:
   - Claude
   - Agent Skills
 excludeSearch: false
+images:
+  - /images/agent_skills_progressive_disclosure.svg
 ---
 
 *Part 8 of a series on Claude API features for builders*

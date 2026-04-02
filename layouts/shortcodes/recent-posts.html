@@ -3,7 +3,15 @@
 {{ $pages := where .Site.RegularPages "Section" $section }}
 {{ range first (int $count) ($pages.ByDate.Reverse) }}
 <a href="{{ .RelPermalink }}" class="blog-card">
-  <span class="blog-card-title">{{ .Title }}</span>
-  <span class="blog-card-date">{{ .Date.Format "2 Jan 2006" }}</span>
+  {{- with .Params.images }}
+    {{- $img := index . 0 }}
+    <img src="{{ $img }}" class="blog-card-thumb" alt="" />
+  {{- else }}
+    <span class="blog-card-thumb-placeholder"></span>
+  {{- end }}
+  <span class="blog-card-text">
+    <span class="blog-card-title">{{ .Title }}</span>
+    <span class="blog-card-date">{{ .Date.Format "2 Jan 2006" }}</span>
+  </span>
 </a>
 {{ end }}
