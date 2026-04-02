@@ -1,6 +1,6 @@
 ---
 title: How Much Can AI Remember?
-date: 2026-04-03
+date: 2026-04-02
 authors:
   - name: robcost
     link: https://github.com/robcost
@@ -39,7 +39,9 @@ With Claude Opus 4.6 and Sonnet 4.6, the context window is now [1 million tokens
 
 ![What fits in a 1M token context window](/images/context_window_scale.svg)
 
-That's an enormous amount of working memory. You can feed Claude an entire codebase, a full set of legal contracts, or hundreds of pages of research, and still have room for a long conversation about it. The previous standard was 200K tokens (which was already large), so 1M represents a 5x increase.
+In 2023, I was trying to convince a customer to explore document summarisation for their historical document archive. They had years of documents they wanted indexed and summarised, a quick way to find what mattered without reading everything. The model I was pitching was Google's BigBird-Pegasus, which at the time felt like a breakthrough because it could handle 4,096 tokens of input (huge right!), that's roughly 6 pages. I spent weeks figuring out how to chunk their documents into pieces small enough to fit, summarise each chunk separately, then stitch the summaries together (a summary of summaries if you will). It "sort of" worked, it was clunky and the transition from extractive to abstractive summarisation was still not perfect. Three years later, Claude can take in 1 million tokens in a single request. You could feed it that entire archive now and ask a question. Quite some progress in 3 years right?
+
+1 millon tokens is an enormous amount of working memory. You can feed Claude an entire codebase, a full set of legal contracts, or hundreds of pages of research, and still have room for a long conversation about it. The previous standard was 200K tokens (which was already large), so 1M represents a 5x increase. Just imagine how big the window will be in 5 to 10 years from now!
 
 For Sonnet 4.5 and Sonnet 4, you can access 1M tokens by adding the `context-1m-2025-08-07` beta header to your requests (available to organisations in usage tier 4+). For Opus 4.6 and Sonnet 4.6, it's available by default.
 
@@ -76,7 +78,7 @@ const response2 = await client.beta.messages.create({
 
 ## More context isn't automatically better
 
-Here's something that's not immediately obvious and that I think is important to understand: a bigger context window doesn't automatically mean better results. As the amount of context grows, accuracy and recall can degrade, a phenomenon researchers call *context rot*.
+Here's something that's not immediately obvious and that I think is important to understand: a bigger context window doesn't automatically mean better results. As the amount of context grows, accuracy and recall can degrade, a phenomenon researchers call *context rot* or *forgetting in the middle*.
 
 Claude achieves state-of-the-art results on long-context retrieval benchmarks (like [MRCR](https://arxiv.org/abs/2501.03276)), but even the best models start to lose track of specific details when the context gets very long. It's like the difference between finding a specific sentence in a one-page memo versus finding it in a 500-page book. Both are possible, but one is harder.
 
@@ -248,4 +250,3 @@ With 1M tokens now available and compaction handling the overflow, the constrain
 - [Compaction, Claude API docs](https://platform.claude.com/docs/en/build-with-claude/compaction), Server-side context summarisation with custom instructions and pause controls
 - [Context editing, Claude API docs](https://platform.claude.com/docs/en/build-with-claude/context-editing), Tool result clearing and thinking block clearing strategies
 - [Effective context engineering (Anthropic engineering blog)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), Deep dive on why what's in context matters more than how much fits
-- [MRCR benchmark paper](https://arxiv.org/abs/2501.03276), The long-context retrieval benchmark where Claude achieves state-of-the-art results
