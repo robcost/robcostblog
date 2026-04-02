@@ -153,7 +153,7 @@ const invoiceBatch = await client.messages.batches.create({
 });
 ```
 
-A thousand invoices, structured extraction, guaranteed schema conformance, at 50% off. That's a compelling proposition.
+A thousand invoices, structured extraction, guaranteed schema conformance, at 50% off. That's a hard deal to turn down.
 
 ## Prompt caching: stop paying for the same tokens twice
 
@@ -294,7 +294,7 @@ Prompts shorter than these minimums will be processed normally without caching, 
 
 ## Using both together
 
-Batch processing and prompt caching aren't mutually exclusive. In fact, they complement each other beautifully. Consider a batch of 1,000 invoice extraction requests where every request shares the same system prompt, tool definitions, and extraction schema. With caching, the shared context is processed once and reused across all 1,000 requests. With batch pricing, every request is 50% off.
+Batch processing and prompt caching aren't mutually exclusive. In fact, they work well together. Consider a batch of 1,000 invoice extraction requests where every request shares the same system prompt, tool definitions, and extraction schema. With caching, the shared context is processed once and reused across all 1,000 requests. With batch pricing, every request is 50% off.
 
 The savings stack: batch gives you 50% off, caching gives you 90% off on cached tokens. On a workload with a large shared context and many requests, you can realistically achieve 90%+ total cost reduction compared to naive real-time processing.
 
@@ -338,7 +338,7 @@ That's a 70% reduction from the naive approach. For workloads with larger shared
 
 Batch processing and prompt caching are the features you reach for *after* you've built something with the capabilities from Parts 1-6. They're the optimisation layer that makes everything else economically viable at scale.
 
-If there's one theme that runs through these optimisation features, it's this: the exciting capabilities get the headlines, but the practical plumbing is what ships. Getting costs and latency under control is what separates "interesting experiment" from "viable product."
+Neither of these features will make your demo more impressive, but they're the reason your demo can become a product someone actually pays for. Getting costs and latency under control is unglamorous work, but it's the work that matters once you're past the prototype stage.
 
 ---
 
