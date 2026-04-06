@@ -1,6 +1,6 @@
 ---
 title: Making It Cheaper and Faster
-date: 2026-04-07
+date: 2026-04-06
 authors:
   - name: robcost
     link: https://github.com/robcost
