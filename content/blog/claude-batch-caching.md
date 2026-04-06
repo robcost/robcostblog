@@ -28,7 +28,7 @@ This post covers two features that directly address both: Batch Processing (half
 
 The concept is straightforward. Instead of sending requests to the API one at a time and waiting for each response, you bundle them up and submit them as a batch. Anthropic processes them asynchronously and gives you the results when they're done.
 
-![Real-time API vs Batch processing](/images/batch_vs_realtime.svg)
+<img src="/images/batch_vs_realtime.svg" alt="Real-time API vs Batch processing" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
 
 The trade-off is simple: you give up immediate responses in exchange for a 50% discount on all token costs. Same models, same features, same quality. You can include anything in a batch that you'd normally send to the Messages API, including extended thinking, tool use, structured outputs, PDF processing, and citations.
 
@@ -36,7 +36,7 @@ The trade-off is simple: you give up immediate responses in exchange for a 50% d
 
 The key question is: does this request need an immediate response? If the answer is no, it should probably be a batch.
 
-Real-world examples where batch makes sense: processing a backlog of support tickets for classification, running your evaluation suite across hundreds of test cases, extracting data from a folder of invoices, generating summaries for a library of documents, content moderation across user submissions.
+Real-world examples where batch makes sense: processing a backlog of support tickets, running your evaluation suite across hundreds of test cases, extracting data from a folder of invoices, generating summaries for a library of documents, content moderation across user submissions.
 
 Examples where it doesn't: a chatbot responding to a live user, real-time search augmentation, interactive coding assistants.
 
@@ -121,7 +121,7 @@ A few important details:
 
 ### Combining batch with other features
 
-Here's where it gets powerful. Remember the invoice extraction example from [Part 4](/blog/claude-vision) combined with [Structured Outputs](/blog/claude-structured-outputs)? Run that through batch processing and you've got an enterprise document processing pipeline at half the cost:
+Remember the invoice extraction example from [Part 4](/blog/claude-vision) combined with [Structured Outputs](/blog/claude-structured-outputs)? Run that through batch processing and you've got an enterprise document processing pipeline at half the cost:
 
 ```typescript
 const invoiceBatch = await client.messages.batches.create({
@@ -161,7 +161,7 @@ Batch processing helps when you have many requests. Prompt caching helps when yo
 
 Think about a typical API application. Every request includes your system prompt. Most include tool definitions. Many include the same reference documents or conversation history. Without caching, you're paying full price to process all of that shared content on every single request.
 
-![How prompt caching reduces costs across requests](/images/prompt_caching_flow.svg)
+<img src="/images/prompt_caching_flow.svg" alt="How prompt caching reduces costs across requests" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
 
 Prompt caching lets you mark content for reuse. The first request pays a slightly higher rate (1.25x) to write the content to the cache. Every subsequent request that includes the same prefix reads from the cache at just 0.1x the normal input cost. That's a 90% discount on cached tokens.
 
@@ -296,15 +296,15 @@ Prompts shorter than these minimums will be processed normally without caching, 
 
 Batch processing and prompt caching aren't mutually exclusive. In fact, they work well together. Consider a batch of 1,000 invoice extraction requests where every request shares the same system prompt, tool definitions, and extraction schema. With caching, the shared context is processed once and reused across all 1,000 requests. With batch pricing, every request is 50% off.
 
-The savings stack: batch gives you 50% off, caching gives you 90% off on cached tokens. On a workload with a large shared context and many requests, you can realistically achieve 90%+ total cost reduction compared to naive real-time processing.
+The savings stack: batch gives you 50% off, caching gives you 90% off on cached tokens. On a workload with a large shared context and many requests, you can realistically achieve 90%+ total cost reduction compared to simple real-time processing.
 
 One tip for batches specifically: since batch requests can take longer than 5 minutes to process, consider using the 1-hour cache duration to ensure cache hits don't expire mid-batch.
 
 ## A cost comparison
 
-Let's make this concrete. Imagine you're processing 1,000 documents, each with a 10,000-token system prompt and 5,000 tokens of document content, generating 1,000 tokens of output per document. Using Sonnet 4.6 pricing ($3/M input, $15/M output):
+Let's consider that document processing service. Imagine you're processing 1,000 documents, each with a 10,000-token system prompt and 5,000 tokens of document content, generating 1,000 tokens of output per document. Using Sonnet 4.6 pricing ($3/M input, $15/M output):
 
-**Naive approach (no optimisation):**
+**Simple approach (no optimisation):**
 - Input: 1,000 × 15,000 tokens = 15M tokens × $3/M = $45.00
 - Output: 1,000 × 1,000 tokens = 1M tokens × $15/M = $15.00
 - **Total: $60.00**
@@ -320,7 +320,9 @@ Let's make this concrete. Imagine you're processing 1,000 documents, each with a
 - Output: 1,000 × 1,000 tokens × $7.50/M = $7.50
 - **Total: ~$18.04**
 
-That's a 70% reduction from the naive approach. For workloads with larger shared contexts (like a 50,000-token system prompt), the savings are even more dramatic.
+That's a 70% reduction from the simple approach. For workloads with larger shared contexts (like a 50,000-token system prompt), the savings are even more dramatic.
+
+<img src="/images/batch_caching_cost_comparison.svg" alt="Cost comparison: simple vs batch vs batch + caching" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
 
 ## Practical guidance
 
@@ -334,7 +336,7 @@ That's a 70% reduction from the naive approach. For workloads with larger shared
 
 **Consider the 1-hour cache for document Q&A.** If users are uploading a document and asking multiple questions about it, the 5-minute default might expire between questions. The 1-hour cache costs more per write but avoids repeated reprocessing of the same document.
 
-## Wrapping up the series
+## The optimisation layer
 
 Batch processing and prompt caching are the features you reach for *after* you've built something with the capabilities from Parts 1-6. They're the optimisation layer that makes everything else economically viable at scale.
 

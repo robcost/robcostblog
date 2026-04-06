@@ -13,7 +13,7 @@ excludeSearch: false
 
 There were two moments that sent me down the startup founder path, and neither happened at my desk.
 
-The first one I was sitting on a tram going to work one day, watching tech Twitter posts, and one was a demo video from Google showing an early version of Gemini generating an app's UI on the fly. A user typed into a text box and the system generated Flutter code in real time, rendering cards, buttons, images, the whole interface, dynamically based on what the user asked for. It wasn't a chatbot. It wasn't a static screen. It was an application that built itself around the user's intent.
+The first one I was sitting on a tram going to work one day, watching tech Twitter posts, and one was a demo video from Google showing an early version of Gemini generating an app's UI on the fly. A dude typed into a text box and the system generated Flutter code in real time, rendering cards, buttons, images, the whole interface, dynamically based on what the user asked for. It wasn't a chatbot. It wasn't a static screen. It was an application that built itself around the user's intent.
 
 The second was a night in Geneva. I was sitting in my car outside my son's basketball practice, and I decided to try ChatGPT's voice mode, which had just been released. I ended up having a 20-minute conversation about quantum physics with an AI, a very sureal experience the first time you do it. Not reading text on a screen. Talking. It talked back. I sat in that car park for a while after it ended, thinking about what I'd just experienced.
 

@@ -1,0 +1,38 @@
+<svg width="100%" viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 14px; font-weight: 500; }
+    .label { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 13px; font-weight: 500; }
+    .sub { fill: rgb(200, 200, 210); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 400; }
+    .cost { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 28px; font-weight: 600; }
+    .savings { fill: rgb(133, 235, 183); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 12px; font-weight: 500; }
+    .axis { fill: rgb(160, 160, 170); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 400; }
+  </style>
+
+  <text x="340" y="30" text-anchor="middle" class="title">Processing 1,000 documents: cost comparison</text>
+  <text x="340" y="48" text-anchor="middle" class="sub">10K-token system prompt + 5K-token document per request, Sonnet 4.6 pricing</text>
+
+  <!-- Baseline line -->
+  <line x1="60" y1="260" x2="620" y2="260" stroke="rgb(100, 100, 110)" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Simple approach bar -->
+  <rect x="90" y="100" width="140" height="160" rx="6" fill="rgb(120, 30, 40)" stroke="rgb(235, 133, 133)" stroke-width="0.5"/>
+  <text x="160" y="130" text-anchor="middle" class="label">Simple</text>
+  <text x="160" y="148" text-anchor="middle" class="sub">(no optimisation)</text>
+  <text x="160" y="195" text-anchor="middle" class="cost">$60</text>
+  <text x="160" y="215" text-anchor="middle" class="sub">baseline</text>
+
+  <!-- Batch only bar -->
+  <rect x="270" y="180" width="140" height="80" rx="6" fill="rgb(12, 68, 124)" stroke="rgb(133, 183, 235)" stroke-width="0.5"/>
+  <text x="340" y="208" text-anchor="middle" class="label">Batch only</text>
+  <text x="340" y="240" text-anchor="middle" class="cost">$30</text>
+  <text x="340" y="278" text-anchor="middle" class="savings">50% saved</text>
+
+  <!-- Batch + caching bar -->
+  <rect x="450" y="212" width="140" height="48" rx="6" fill="rgb(16, 90, 70)" stroke="rgb(133, 235, 183)" stroke-width="0.5"/>
+  <text x="520" y="232" text-anchor="middle" class="label">Batch + caching</text>
+  <text x="520" y="265" text-anchor="middle" class="cost" style="font-size: 22px;">$18</text>
+  <text x="520" y="286" text-anchor="middle" class="savings">70% saved</text>
+
+  <!-- Footer note -->
+  <text x="340" y="330" text-anchor="middle" class="sub">Savings stack: batch processing (50% off) + prompt caching (90% off on cached tokens)</text>
+</svg>
