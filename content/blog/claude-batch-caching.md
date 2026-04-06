@@ -1,5 +1,5 @@
 ---
-title: Making It Cheaper and Faster
+title: Making AI Cheaper and Faster
 date: 2026-04-06
 authors:
   - name: robcost
