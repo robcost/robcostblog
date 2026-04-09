@@ -1,0 +1,57 @@
+<svg width="100%" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 14px; font-weight: 500; }
+    .label { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 13px; font-weight: 500; }
+    .code { fill: rgb(250, 249, 245); font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: 500; }
+    .sub { fill: rgb(180, 180, 195); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 400; }
+    .badge-always { fill: rgb(133, 235, 183); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 600; }
+    .badge-ondemand { fill: rgb(235, 195, 133); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 600; }
+  </style>
+
+  <text x="340" y="30" text-anchor="middle" class="title">Inside a Skill folder: what loads when</text>
+
+  <!-- phaser-development root -->
+  <rect x="60" y="60" width="560" height="46" rx="6" fill="rgb(12, 68, 124)" stroke="rgb(133, 183, 235)" stroke-width="0.5"/>
+  <text x="80" y="86" class="code">phaser-development/</text>
+  <text x="600" y="86" text-anchor="end" class="sub">Skill folder</text>
+
+  <!-- SKILL.md - always loaded -->
+  <rect x="100" y="126" width="520" height="56" rx="6" fill="rgb(16, 90, 70)" stroke="rgb(133, 235, 183)" stroke-width="0.8"/>
+  <text x="120" y="150" class="code">SKILL.md</text>
+  <text x="120" y="168" class="sub">Core instructions, references to supporting files (~85 lines)</text>
+  <text x="600" y="150" text-anchor="end" class="badge-always">ALWAYS LOADED</text>
+
+  <!-- Dashed divider -->
+  <line x1="100" y1="200" x2="620" y2="200" stroke="rgb(100, 100, 110)" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="100" y="220" class="sub">Supporting files — loaded only when the task needs them</text>
+
+  <!-- GENRES.md -->
+  <rect x="100" y="232" width="520" height="32" rx="5" fill="rgb(60, 50, 20)" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="120" y="253" class="code">GENRES.md</text>
+  <text x="280" y="253" class="sub">Platformer, shooter, puzzle patterns</text>
+  <text x="600" y="253" text-anchor="end" class="badge-ondemand">ON DEMAND</text>
+
+  <!-- ASSETS.md -->
+  <rect x="100" y="270" width="520" height="32" rx="5" fill="rgb(60, 50, 20)" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="120" y="291" class="code">ASSETS.md</text>
+  <text x="280" y="291" class="sub">Image loading, sprite sizing, audio</text>
+  <text x="600" y="291" text-anchor="end" class="badge-ondemand">ON DEMAND</text>
+
+  <!-- PERFORMANCE.md -->
+  <rect x="100" y="308" width="520" height="32" rx="5" fill="rgb(60, 50, 20)" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="120" y="329" class="code">PERFORMANCE.md</text>
+  <text x="280" y="329" class="sub">Object pooling, GC, render optimisation</text>
+  <text x="600" y="329" text-anchor="end" class="badge-ondemand">ON DEMAND</text>
+
+  <!-- ANIMATION.md -->
+  <rect x="100" y="346" width="520" height="32" rx="5" fill="rgb(60, 50, 20)" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="120" y="367" class="code">ANIMATION.md</text>
+  <text x="280" y="367" class="sub">Sprite animation, tweens, game juice</text>
+  <text x="600" y="367" text-anchor="end" class="badge-ondemand">ON DEMAND</text>
+
+  <!-- PITFALLS.md -->
+  <rect x="100" y="384" width="520" height="32" rx="5" fill="rgb(60, 50, 20)" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="120" y="405" class="code">PITFALLS.md</text>
+  <text x="280" y="405" class="sub">20 most common Phaser 3 mistakes</text>
+  <text x="600" y="405" text-anchor="end" class="badge-ondemand">ON DEMAND</text>
+</svg>

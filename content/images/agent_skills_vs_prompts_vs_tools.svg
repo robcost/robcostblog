@@ -1,0 +1,60 @@
+<svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 14px; font-weight: 500; }
+    .col-title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 16px; font-weight: 600; }
+    .row-label { fill: rgb(180, 180, 195); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+    .cell { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 12px; font-weight: 400; }
+    .good { fill: rgb(133, 235, 183); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 500; }
+  </style>
+
+  <text x="340" y="30" text-anchor="middle" class="title">System prompts vs Tools vs Skills</text>
+
+  <!-- Column headers -->
+  <rect x="180" y="56" width="150" height="44" rx="6" fill="rgb(60, 50, 20)" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="255" y="84" text-anchor="middle" class="col-title">System prompts</text>
+
+  <rect x="340" y="56" width="150" height="44" rx="6" fill="rgb(12, 68, 124)" stroke="rgb(133, 183, 235)" stroke-width="0.5"/>
+  <text x="415" y="84" text-anchor="middle" class="col-title">Tools</text>
+
+  <rect x="500" y="56" width="150" height="44" rx="6" fill="rgb(16, 90, 70)" stroke="rgb(133, 235, 183)" stroke-width="0.5"/>
+  <text x="575" y="84" text-anchor="middle" class="col-title">Skills</text>
+
+  <!-- Row: When loaded -->
+  <text x="30" y="138" class="row-label">When loaded</text>
+  <text x="255" y="138" text-anchor="middle" class="cell">Every request</text>
+  <text x="415" y="138" text-anchor="middle" class="cell">On demand</text>
+  <text x="575" y="138" text-anchor="middle" class="cell">On demand</text>
+
+  <line x1="30" y1="150" x2="650" y2="150" stroke="rgb(60, 60, 70)" stroke-width="1"/>
+
+  <!-- Row: What it does -->
+  <text x="30" y="188" class="row-label">What it does</text>
+  <text x="255" y="182" text-anchor="middle" class="cell">Sets tone and</text>
+  <text x="255" y="198" text-anchor="middle" class="cell">general behaviour</text>
+  <text x="415" y="182" text-anchor="middle" class="cell">Defines actions</text>
+  <text x="415" y="198" text-anchor="middle" class="cell">Claude can take</text>
+  <text x="575" y="182" text-anchor="middle" class="cell">Packages expertise</text>
+  <text x="575" y="198" text-anchor="middle" class="cell">+ supporting resources</text>
+
+  <line x1="30" y1="216" x2="650" y2="216" stroke="rgb(60, 60, 70)" stroke-width="1"/>
+
+  <!-- Row: Context cost -->
+  <text x="30" y="248" class="row-label">Context cost</text>
+  <text x="255" y="248" text-anchor="middle" class="cell">Full, always</text>
+  <text x="415" y="248" text-anchor="middle" class="cell">Schema only</text>
+  <text x="575" y="248" text-anchor="middle" class="cell">~100 tokens to discover</text>
+
+  <line x1="30" y1="266" x2="650" y2="266" stroke="rgb(60, 60, 70)" stroke-width="1"/>
+
+  <!-- Row: Best for -->
+  <text x="30" y="298" class="row-label">Best for</text>
+  <text x="255" y="292" text-anchor="middle" class="cell">Personality,</text>
+  <text x="255" y="308" text-anchor="middle" class="cell">global rules</text>
+  <text x="415" y="292" text-anchor="middle" class="cell">API calls, file I/O,</text>
+  <text x="415" y="308" text-anchor="middle" class="cell">external services</text>
+  <text x="575" y="292" text-anchor="middle" class="cell">Domain knowledge,</text>
+  <text x="575" y="308" text-anchor="middle" class="cell">templates, scripts</text>
+
+  <!-- Footer -->
+  <text x="340" y="358" text-anchor="middle" class="good">The practical test: if you're pasting the same long instructions into every system prompt, that's a Skill.</text>
+</svg>

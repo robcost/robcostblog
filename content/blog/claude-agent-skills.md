@@ -1,6 +1,6 @@
 ---
 title: Teaching AI New Tricks
-date: 2026-04-10
+date: 2026-04-09
 authors:
   - name: robcost
     link: https://github.com/robcost
@@ -58,7 +58,7 @@ The Phaser game project uses Vite + TypeScript with this layout:
 For the most common Phaser 3 bugs, see PITFALLS.md.
 ```
 
-That last line is the key. The SKILL.md doesn't contain everything. It references separate files for specific topics. The full Skill folder looks like this:
+Notice the reference to `PITFALLS.md` at the end. The SKILL.md doesn't contain everything, it points to separate files for specific topics. The full Skill folder looks like this:
 
 ```
 phaser-development/
@@ -72,9 +72,11 @@ phaser-development/
 
 Claude reads SKILL.md first. If the task involves a platformer, it reads GENRES.md. If it needs to optimise performance, it reads PERFORMANCE.md. The others stay unloaded. This is progressive disclosure in action, and it's what makes Skills work at scale.
 
+<img src="/images/agent_skills_folder_structure.svg" alt="Inside a Skill folder: what loads when" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
+
 ## Progressive disclosure: the clever bit
 
-![How Skills use progressive disclosure to save context](/images/agent_skills_progressive_disclosure.svg)
+<img src="/images/agent_skills_progressive_disclosure.svg" alt="How Skills use progressive disclosure to save context" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
 
 **Stage 1: Discovery.** At startup, Claude sees only the name and short description of each available Skill. This costs maybe 100 tokens per Skill, so even with dozens of Skills available, the context window impact is minimal.
 
@@ -225,6 +227,8 @@ Skills require the code execution tool because they run in the VM. You can combi
 
 ## Skills vs prompts vs tools
 
+<img src="/images/agent_skills_vs_prompts_vs_tools.svg" alt="System prompts vs Tools vs Skills" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
+
 **System prompts** are conversation-level instructions. They consume context on every request. Great for tone and general behaviour.
 
 **Tools** define actions Claude can take. They don't teach Claude *how* to do something well.
@@ -258,7 +262,7 @@ The filesystem-based approach is particularly nice for project-specific Skills. 
 
 The GameForge project taught me this clearly. Without Skills, the Developer agent's system prompt would need thousands of tokens of Phaser patterns, genre guidance, performance tips, and common pitfalls, all loaded on every single request regardless of what the task actually needed. With Skills, the system prompt just says "use the phaser-development skill" and the agent loads exactly what it needs for the specific task. The context window stays lean, the agent performs better, and the expertise is maintained in a structured, testable, version-controlled format.
 
-Skills represent a shift from configuring an AI for specific conversations to building an AI that has actual *competencies*. For anyone building multi-agent systems or domain-specific AI tools, they're worth the investment.
+Skills change how you build. Instead of configuring an AI for each conversation, you're giving it real *competencies* it can pull from when needed. For anyone building multi-agent systems or domain-specific AI tools, they're worth the investment.
 
 ---
 
