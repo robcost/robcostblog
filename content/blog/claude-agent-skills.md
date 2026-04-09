@@ -279,4 +279,3 @@ Skills change how you build. Instead of configuring an AI for each conversation,
 - [Agent Skills best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices), Authoring guidelines for effective custom Skills
 - [Skills for enterprise](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/enterprise), Governance, security review, and deployment
 - [GameForge source code](https://github.com/robcost/gameforge), The multi-agent game creation platform used as an example throughout this post
-- [Agent Skills deep dive (Han Lee)](https://leehanchung.github.io/blogs/2025/10/26/claude-skills-deep-dive/), Independent technical analysis of the Skills architecture
