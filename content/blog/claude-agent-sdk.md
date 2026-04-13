@@ -1,6 +1,6 @@
 ---
 title: From API Calls to Autonomous Agents
-date: 2026-04-14
+date: 2026-04-13
 authors:
   - name: robcost
     link: https://github.com/robcost
@@ -23,7 +23,7 @@ But if you've built anything with more than a couple of tools, you know the boil
 
 The [Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) eliminates that plumbing. It's the same engine that powers Claude Code, exposed as a library. You get the agent loop, 15+ built-in tools (file reading, writing, editing, bash, grep, glob, web search), context management, automatic compaction, and a streaming message interface, all out of the box. Your job becomes defining what your agent *does*, not how the agent *works*.
 
-![Raw Messages API vs Agent SDK](/images/agent_sdk_vs_raw_api.svg)
+<img src="/images/agent_sdk_vs_raw_api.svg" alt="Raw Messages API vs Agent SDK" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
 
 ## The core concept: query()
 
@@ -65,7 +65,7 @@ You control which tools are available via `allowedTools`. Want a read-only agent
 
 ## How GameForge uses the Agent SDK
 
-I'll use [GameForge](https://github.com/robcost/gameforge) again here because it's a good example of a non-trivial Agent SDK application. GameForge is a multi-agent game creation platform where a team of AI agents (Designer, Developer, QA) collaboratively build Phaser web games.
+I'll use [GameForge](https://github.com/robcost/gameforge) again here because it's a good example of a non-trivial Agent SDK application. GameForge is a multi-agent game creation platform where a team of AI agents (Designer, Developer, QA) collaboratively build Phaser/ThreeJS web games.
 
 The orchestrator is a TypeScript coordinator, not an AI agent itself, that manages the pipeline: user request → Designer creates a game design document → Developer writes the code → QA playtests with Playwright → results stream back to the user.
 
@@ -111,7 +111,7 @@ A few things worth highlighting:
 
 **`settingSources: ["project"]`** enables filesystem-based configuration. This is how the SDK discovers Skills from `.claude/skills/` and reads project context from `CLAUDE.md`.
 
-**`mcpServers`** connects custom MCP tool servers. GameForge's Developer agent gets a game-tools server (for reading the design document), while the QA agent gets a Playwright server (for screenshotting and interacting with the running game). More on this in the next post on MCP.
+**`mcpServers`** connects custom MCP tool servers. GameForge's Developer agent gets a game-tools server (for reading the design document), while the QA agent gets a Playwright server (for screenshotting and interacting with the running game).
 
 **`allowedTools` is granular.** The Developer gets `Skill`, `Read`, `Write`, `Edit`. The QA agent gets `Read` plus Playwright MCP tools. The Designer gets `Read` plus game-tools MCP tools. Each agent sees only the tools relevant to its role.
 
@@ -186,9 +186,11 @@ const gameToolServer = createMcpServer({
 
 The `tool()` helper creates type-safe MCP tool definitions using Zod schemas, the same pattern from [Part 3](/blog/claude-structured-outputs). You define the name, description, input schema, and handler function. The SDK makes these tools available to the agent alongside the built-in ones.
 
-This is one of the most powerful patterns in the SDK. Your domain logic lives in MCP servers, the agent loop and tool execution live in the SDK, and Claude decides when to use what. You compose capabilities without building infrastructure.
+Your domain logic lives in MCP servers, the agent loop and tool execution live in the SDK, and Claude decides when to use what. You compose capabilities without building infrastructure.
 
 ## Permission modes
+
+<img src="/images/agent_sdk_permission_modes.svg" alt="Permission modes: oversight to autonomy" style="background: #1a1a2e; border-radius: 0.5rem; padding: 1rem;" />
 
 The SDK has three permission modes for controlling what agents can do:
 
@@ -203,26 +205,6 @@ The SDK has three permission modes for controlling what agents can do:
 The SDK reads `CLAUDE.md` files from the project directory when `settingSources` includes `"project"`. This is a simple but powerful mechanism for giving agents project-specific context without bloating the system prompt.
 
 GameForge's `CLAUDE.md` includes the monorepo structure, tech decisions, testing requirements, and links to key documents. Every agent that runs in the project directory picks this up automatically. It's essentially a persistent project memory that lives in version control.
-
-## The V2 interface (preview)
-
-Anthropic recently released a preview of a V2 TypeScript interface that simplifies multi-turn conversations. Instead of managing async generators, you use explicit `send()` and `stream()` calls on a session object:
-
-```typescript
-import { unstable_v2_createSession } from "@anthropic-ai/claude-agent-sdk";
-
-await using session = unstable_v2_createSession({
-  model: "claude-opus-4-6",
-});
-
-const result1 = await session.send("What files are in this directory?");
-console.log(result1.result);
-
-const result2 = await session.send("Now fix the bug in utils.ts");
-console.log(result2.result);
-```
-
-The session maintains conversation context across turns, making multi-turn agents much simpler to build. This is still in preview, but it's the direction things are headed.
 
 ## When to use the SDK vs the raw API
 
@@ -246,7 +228,7 @@ GameForge uses the Agent SDK because the agents need to read and write game code
 
 ## Trade-offs
 
-**Dependency weight.** The SDK is a substantial dependency. It bundles Claude Code's runtime, which is significantly heavier than the base Anthropic SDK.
+**Dependency weight.** The SDK is a substantial dependency. It includes the full agent runtime with built-in tool implementations, which is significantly heavier than the base Anthropic API client.
 
 **Opacity.** The agent loop is a black box. You get streaming messages, but you don't control the loop the way you do with the raw API. If you need to inject custom logic between tool calls (beyond what MCP servers provide), it can be limiting.
 
@@ -256,13 +238,13 @@ GameForge uses the Agent SDK because the agents need to read and write game code
 
 ## Why this matters
 
-The Agent SDK represents a meaningful shift in how you build AI applications. Instead of writing infrastructure code to manage tool loops and conversation state, you write domain code, the system prompts, MCP servers, and Skills that define what your agent actually does. The SDK handles the plumbing.
+The Agent SDK changes where you spend your time. Instead of writing infrastructure code to manage tool loops and conversation state, you write the stuff that actually matters, the system prompts, MCP servers, and Skills that define what your agent does. The SDK handles the plumbing.
 
-For GameForge, this was the difference between spending weeks on agent infrastructure and spending that time on what actually matters: the game design prompts, the Phaser coding Skills, the Playwright testing tools, and the orchestration logic that coordinates the whole team. The SDK gave us a production-grade agent runtime to build on top of.
+For GameForge, this was the difference between spending weeks on agent infrastructure and spending that time on what actually matters: the game design prompts, the Phaser/ThreeJS coding Skills, the Playwright testing tools, and the orchestration logic that coordinates the whole team. The SDK gave us a production-grade agent runtime to build on top of.
 
 ---
 
-*Final post in this series: MCP (Model Context Protocol), the open standard for connecting AI to external services, and how it ties everything together.*
+*Final post in this series: Managed Agents, where Anthropic runs the infrastructure so you don't have to.*
 
 *If you're building with this stuff or just curious about it, I'd love to hear what you think. You can find me at [robcost.com](https://robcost.com) or reach out on [LinkedIn](https://www.linkedin.com/in/robcost/).*
 
@@ -274,5 +256,4 @@ For GameForge, this was the difference between spending weeks on agent infrastru
 - [Agent SDK quickstart](https://platform.claude.com/docs/en/agent-sdk/quickstart), Build your first agent in minutes
 - [TypeScript SDK reference](https://platform.claude.com/docs/en/agent-sdk/typescript), Full API reference for query(), tool(), and createMcpServer()
 - [TypeScript V2 preview](https://platform.claude.com/docs/en/agent-sdk/typescript-v2-preview), The simplified session-based interface
-- [Building agents with the Claude Agent SDK (Nader Dabit)](https://nader.substack.com/p/the-complete-guide-to-building-agents), Excellent independent guide with a code review agent walkthrough
 - [GameForge source code](https://github.com/robcost/gameforge), Multi-agent game creation platform built on the Agent SDK

@@ -1,0 +1,46 @@
+<svg width="100%" viewBox="-10 0 700 380" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 14px; font-weight: 500; }
+    .level-label { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 15px; font-weight: 600; }
+    .desc { fill: rgb(200, 200, 210); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 400; }
+    .you { fill: rgb(235, 133, 133); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .them { fill: rgb(133, 235, 183); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .axis { fill: rgb(140, 140, 155); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+  </style>
+
+  <text x="340" y="28" text-anchor="middle" class="title">The abstraction ladder: what you manage vs what Anthropic manages</text>
+
+  <!-- Axis labels -->
+  <text x="22" y="52" text-anchor="middle" class="axis">More</text>
+  <text x="22" y="62" text-anchor="middle" class="axis">control</text>
+  <text x="22" y="348" text-anchor="middle" class="axis">Less</text>
+  <text x="22" y="358" text-anchor="middle" class="axis">infra</text>
+
+  <!-- Arrow -->
+  <line x1="22" y1="72" x2="22" y2="326" stroke="rgb(80, 80, 90)" stroke-width="1.5"/>
+  <polygon points="18,326 22,336 26,326" fill="rgb(80, 80, 90)"/>
+
+  <!-- Level 1: Raw API -->
+  <rect x="70" y="56" width="580" height="86" rx="6" fill="rgb(120, 30, 40)" fill-opacity="0.2" stroke="rgb(235, 133, 133)" stroke-width="0.5"/>
+  <text x="90" y="78" class="level-label">Raw Messages API</text>
+  <text x="640" y="74" text-anchor="end" class="you">You manage: everything</text>
+  <text x="640" y="88" text-anchor="end" class="them">Anthropic manages: model</text>
+  <text x="90" y="106" class="desc">You build the agent loop, tool execution, sandbox, state management, error handling.</text>
+  <text x="90" y="122" class="desc">Anthropic provides the model. Maximum control, maximum responsibility.</text>
+
+  <!-- Level 2: Agent SDK -->
+  <rect x="70" y="156" width="580" height="86" rx="6" fill="rgb(60, 50, 20)" fill-opacity="0.25" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="90" y="178" class="level-label">Agent SDK</text>
+  <text x="640" y="174" text-anchor="end" class="you">You manage: infrastructure</text>
+  <text x="640" y="188" text-anchor="end" class="them">Anthropic manages: agent runtime</text>
+  <text x="90" y="206" class="desc">You provide the containers and execution environment.</text>
+  <text x="90" y="222" class="desc">Anthropic provides the agent loop, built-in tools, compaction, and caching.</text>
+
+  <!-- Level 3: Managed Agents -->
+  <rect x="70" y="256" width="580" height="86" rx="6" fill="rgb(16, 90, 70)" fill-opacity="0.25" stroke="rgb(133, 235, 183)" stroke-width="0.5"/>
+  <text x="90" y="278" class="level-label">Managed Agents</text>
+  <text x="640" y="274" text-anchor="end" class="you">You manage: config + events</text>
+  <text x="640" y="288" text-anchor="end" class="them">Anthropic manages: everything else</text>
+  <text x="90" y="306" class="desc">You define the agent config and send messages.</text>
+  <text x="90" y="322" class="desc">Anthropic provides the model, runtime, containers, tools, caching, and compaction.</text>
+</svg>

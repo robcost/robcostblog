@@ -1,6 +1,6 @@
 ---
 title: The Universal Connector for AI
-date: 2026-04-17
+date: 2099-04-17
 authors:
   - name: robcost
     link: https://github.com/robcost

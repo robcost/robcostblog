@@ -1,0 +1,47 @@
+<svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 14px; font-weight: 500; }
+    .mode { fill: rgb(250, 249, 245); font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px; font-weight: 600; }
+    .desc { fill: rgb(200, 200, 210); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 400; }
+    .use { fill: rgb(180, 180, 195); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 400; font-style: italic; }
+    .axis-label { fill: rgb(140, 140, 155); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+  </style>
+
+  <text x="340" y="28" text-anchor="middle" class="title">Permission modes: how much autonomy does the agent get?</text>
+
+  <!-- Axis line -->
+  <line x1="60" y1="60" x2="620" y2="60" stroke="rgb(80, 80, 90)" stroke-width="1.5"/>
+  <!-- Arrow head -->
+  <polygon points="620,56 630,60 620,64" fill="rgb(80, 80, 90)"/>
+
+  <!-- Axis labels -->
+  <text x="60" y="52" class="axis-label">Full oversight</text>
+  <text x="620" y="52" text-anchor="end" class="axis-label">Full autonomy</text>
+
+  <!-- Mode 1: default -->
+  <circle cx="110" cy="60" r="6" fill="rgb(235, 133, 133)" stroke="rgb(120, 30, 40)" stroke-width="1.5"/>
+  <rect x="40" y="80" width="180" height="110" rx="6" fill="rgb(120, 30, 40)" fill-opacity="0.25" stroke="rgb(235, 133, 133)" stroke-width="0.5"/>
+  <text x="130" y="102" text-anchor="middle" class="mode">"default"</text>
+  <text x="130" y="122" text-anchor="middle" class="desc">Asks user approval</text>
+  <text x="130" y="138" text-anchor="middle" class="desc">before every tool call</text>
+  <text x="130" y="168" text-anchor="middle" class="use">Interactive apps with</text>
+  <text x="130" y="182" text-anchor="middle" class="use">a human in the loop</text>
+
+  <!-- Mode 2: acceptEdits -->
+  <circle cx="340" cy="60" r="6" fill="rgb(235, 195, 133)" stroke="rgb(60, 50, 20)" stroke-width="1.5"/>
+  <rect x="250" y="80" width="180" height="110" rx="6" fill="rgb(60, 50, 20)" fill-opacity="0.25" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="340" y="102" text-anchor="middle" class="mode">"acceptEdits"</text>
+  <text x="340" y="122" text-anchor="middle" class="desc">Auto-approves file edits,</text>
+  <text x="340" y="138" text-anchor="middle" class="desc">asks for other actions</text>
+  <text x="340" y="168" text-anchor="middle" class="use">Coding agents where you</text>
+  <text x="340" y="182" text-anchor="middle" class="use">trust file changes</text>
+
+  <!-- Mode 3: bypassPermissions -->
+  <circle cx="570" cy="60" r="6" fill="rgb(133, 235, 183)" stroke="rgb(16, 90, 70)" stroke-width="1.5"/>
+  <rect x="460" y="80" width="180" height="110" rx="6" fill="rgb(16, 90, 70)" fill-opacity="0.25" stroke="rgb(133, 235, 183)" stroke-width="0.5"/>
+  <text x="550" y="102" text-anchor="middle" class="mode">"bypassPermissions"</text>
+  <text x="550" y="122" text-anchor="middle" class="desc">Auto-approves everything,</text>
+  <text x="550" y="138" text-anchor="middle" class="desc">requires safety flag</text>
+  <text x="550" y="168" text-anchor="middle" class="use">Fully autonomous agents</text>
+  <text x="550" y="182" text-anchor="middle" class="use">in controlled environments</text>
+</svg>

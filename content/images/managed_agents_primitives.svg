@@ -1,0 +1,55 @@
+<svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 14px; font-weight: 500; }
+    .box-title { fill: rgb(250, 249, 245); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+    .box-desc { fill: rgb(200, 200, 210); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 11px; font-weight: 400; }
+    .badge { fill: rgb(140, 140, 155); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 9px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+    .flow-label { fill: rgb(160, 160, 175); font-family: "Anthropic Sans", -apple-system, system-ui, sans-serif; font-size: 10px; font-weight: 400; }
+  </style>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="rgb(120, 120, 135)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <text x="340" y="28" text-anchor="middle" class="title">The four primitives of Managed Agents</text>
+
+  <!-- Agent box -->
+  <rect x="40" y="50" width="280" height="120" rx="8" fill="rgb(12, 68, 124)" fill-opacity="0.3" stroke="rgb(133, 183, 235)" stroke-width="0.5"/>
+  <text x="60" y="74" class="box-title">Agent</text>
+  <text x="310" y="74" text-anchor="end" class="badge">Create once, reuse, versioned</text>
+  <text x="60" y="98" class="box-desc">Model (e.g. claude-sonnet-4-6)</text>
+  <text x="60" y="114" class="box-desc">System prompt</text>
+  <text x="60" y="130" class="box-desc">Tools (built-in + custom + MCP)</text>
+  <text x="60" y="146" class="box-desc">Skills</text>
+
+  <!-- Environment box -->
+  <rect x="360" y="50" width="280" height="120" rx="8" fill="rgb(60, 50, 20)" fill-opacity="0.3" stroke="rgb(235, 195, 133)" stroke-width="0.5"/>
+  <text x="380" y="74" class="box-title">Environment</text>
+  <text x="630" y="74" text-anchor="end" class="badge">Create once, reuse</text>
+  <text x="380" y="98" class="box-desc">Container template</text>
+  <text x="380" y="114" class="box-desc">Pre-installed packages (pip, npm, apt...)</text>
+  <text x="380" y="130" class="box-desc">Networking (unrestricted / limited)</text>
+  <text x="380" y="146" class="box-desc">Cached across sessions</text>
+
+  <!-- Arrows down to Session -->
+  <line x1="180" y1="170" x2="180" y2="204" stroke="rgb(120, 120, 135)" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="500" y1="170" x2="500" y2="204" stroke="rgb(120, 120, 135)" stroke-width="1" marker-end="url(#arr)"/>
+
+  <!-- Session box -->
+  <rect x="100" y="208" width="480" height="56" rx="8" fill="rgb(16, 90, 70)" fill-opacity="0.3" stroke="rgb(133, 235, 183)" stroke-width="0.5"/>
+  <text x="340" y="232" text-anchor="middle" class="box-title">Session</text>
+  <text x="340" y="250" text-anchor="middle" class="box-desc">Running instance: own filesystem, conversation history, stateful across turns</text>
+
+  <!-- Arrows to Events -->
+  <line x1="260" y1="264" x2="260" y2="288" stroke="rgb(120, 120, 135)" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="420" y1="288" x2="420" y2="264" stroke="rgb(120, 120, 135)" stroke-width="1" marker-end="url(#arr)"/>
+
+  <text x="240" y="282" text-anchor="end" class="flow-label">you send</text>
+  <text x="440" y="282" class="flow-label">agent streams</text>
+
+  <!-- Events box -->
+  <rect x="40" y="292" width="600" height="36" rx="6" fill="rgb(80, 40, 90)" fill-opacity="0.25" stroke="rgb(200, 160, 220)" stroke-width="0.5"/>
+  <text x="340" y="315" text-anchor="middle" class="box-desc">Events: user.message, agent.message, agent.tool_use, agent.tool_result, session.status_idle</text>
+</svg>
