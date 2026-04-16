@@ -1,5 +1,5 @@
 ---
-title: Let Someone Else Run Agent Infrastructure
+title: Let Claude Run Agent Infrastructure
 date: 2026-04-16
 authors:
   - name: robcost
